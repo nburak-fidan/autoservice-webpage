@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Repeat, Sparkles, BadgePercent } from "lucide-react";
+import { ArrowRight, Repeat, Sparkles, BadgePercent, MessageCircle } from "lucide-react";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
@@ -50,7 +50,7 @@ export function CampaignSection() {
   const phoneClean = siteConfig.phone.replace(/[\s+]/g, "");
 
   return (
-    <SectionWrapper id="campaigns">
+    <SectionWrapper id="campaigns" className="noise-overlay">
       {/* Decorative blurs */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand/8 rounded-full blur-[150px]" />
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-brand/5 rounded-full blur-[120px]" />
@@ -79,23 +79,38 @@ export function CampaignSection() {
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {campaigns.map((campaign, i) => (
-          <ScrollReveal key={campaign.title} delay={i * 0.1}>
-            <div className="group relative flex flex-col rounded-2xl border border-border bg-card overflow-hidden h-full transition-all duration-500 hover:border-brand/40 hover:shadow-2xl hover:shadow-brand/10 hover:-translate-y-2">
-              {/* Top accent bar */}
-              <div className="h-1 bg-gradient-to-r from-brand via-brand-light to-brand" />
+          <ScrollReveal key={campaign.title} delay={i * 0.15}>
+            <div className="card-hover-tilt group relative flex flex-col rounded-2xl border border-border/50 bg-card overflow-hidden h-full">
+              {/* Animated top accent bar */}
+              <motion.div
+                className="h-[2px] bg-gradient-to-r from-transparent via-brand to-transparent"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.15 }}
+              />
+
+              {/* Corner glow */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-brand/10 via-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Badge */}
               <div className="absolute top-5 right-5">
-                <span className="px-3 py-1 rounded-full bg-brand text-black text-xs font-black uppercase tracking-wide">
+                <motion.span
+                  className="px-3 py-1.5 rounded-full bg-brand text-black text-xs font-black uppercase tracking-wide shadow-lg shadow-brand/20"
+                  whileHover={{ scale: 1.1, rotate: -3 }}
+                >
                   {campaign.badge}
-                </span>
+                </motion.span>
               </div>
 
               <div className="p-7 flex flex-col flex-1">
                 {/* Icon */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-brand mb-5 group-hover:bg-brand group-hover:text-black transition-all duration-500 group-hover:shadow-lg group-hover:shadow-brand/30 group-hover:scale-110">
+                <motion.div
+                  className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-brand mb-5 group-hover:bg-brand group-hover:text-black transition-all duration-500 group-hover:shadow-xl group-hover:shadow-brand/30"
+                  whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
+                >
                   <campaign.icon className="h-7 w-7" />
-                </div>
+                </motion.div>
 
                 <h3 className="text-xl font-black text-foreground mb-3 group-hover:text-brand transition-colors">
                   {campaign.title}
@@ -106,11 +121,18 @@ export function CampaignSection() {
 
                 {/* Features */}
                 <ul className="space-y-2.5 mb-6">
-                  {campaign.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  {campaign.features.map((f, fi) => (
+                    <motion.li
+                      key={f}
+                      className="flex items-center gap-2.5 text-sm text-muted-foreground"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + fi * 0.1 }}
+                    >
                       <div className="h-1.5 w-1.5 rounded-full bg-brand shrink-0" />
                       {f}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
 
@@ -120,7 +142,8 @@ export function CampaignSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button className="w-full bg-brand text-black font-bold hover:bg-brand-light transition-all duration-300 hover:shadow-lg hover:shadow-brand/30 group-hover:animate-pulse-glow">
+                  <Button className="w-full bg-brand text-black font-bold hover:bg-brand-light transition-all duration-300 hover:shadow-lg hover:shadow-brand/30 pulse-glow">
+                    <MessageCircle className="h-4 w-4 mr-2" />
                     Bilgi Al
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
