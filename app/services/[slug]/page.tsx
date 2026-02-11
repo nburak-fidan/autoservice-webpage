@@ -65,7 +65,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           {/* Main content */}
           <div className="lg:col-span-2">
             <ScrollReveal>
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand mb-6">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-brand mb-6">
                 <service.icon className="h-7 w-7" />
               </div>
               <h1 className="text-3xl font-bold tracking-tight sm:text-4xl text-foreground mb-4">
@@ -103,7 +103,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                 {service.brands.map((brand) => (
                   <span
                     key={brand}
-                    className="rounded-full bg-brand-50 border border-brand-100 px-4 py-1.5 text-sm font-medium text-brand"
+                    className="rounded-full bg-brand/10 border border-brand/20 px-4 py-1.5 text-sm font-medium text-brand"
                   >
                     {brand}
                   </span>
@@ -122,7 +122,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                     <Link
                       key={fault.slug}
                       href={`/faults/${fault.slug}`}
-                      className="block rounded-xl border border-border bg-card p-4 hover:border-brand/20 hover:shadow-sm transition-all"
+                      className="block rounded-xl border border-border bg-card p-4 hover:border-brand/40 hover:shadow-md hover:shadow-brand/10 transition-all"
                     >
                       <h3 className="font-semibold text-foreground text-sm">
                         {fault.title}
@@ -140,7 +140,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           {/* Sidebar CTA */}
           <div className="lg:col-span-1">
             <ScrollReveal direction="right">
-              <div className="sticky top-24 rounded-2xl border border-border bg-card p-6 shadow-sm space-y-4">
+              <div className="sticky top-24 rounded-2xl border border-border bg-card p-6 space-y-4">
                 <h3 className="font-semibold text-foreground">
                   Ücretsiz Teşhis İçin Arayın
                 </h3>
@@ -149,7 +149,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                   ücretsizdir.
                 </p>
                 <Button
-                  className="w-full bg-brand hover:bg-brand-light text-white"
+                  className="w-full bg-brand hover:bg-brand-light text-black font-bold"
                   asChild
                 >
                   <a href={`tel:${SITE_CONFIG.phone}`}>
@@ -157,7 +157,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                     Hemen Ara
                   </a>
                 </Button>
-                <Button variant="outline" className="w-full" asChild>
+                <Button variant="outline" className="w-full border-green-500/30 text-green-400 hover:bg-green-500/10" asChild>
                   <a
                     href={SITE_CONFIG.social.whatsapp}
                     target="_blank"

@@ -1,64 +1,73 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin } from "lucide-react";
-import { SITE_CONFIG } from "@/lib/content/site-config";
+import { Zap, Phone, Mail, MapPin } from "lucide-react";
+import { SITE_CONFIG as siteConfig } from "@/lib/content/site-config";
 import { services } from "@/lib/content/services";
-import { Separator } from "@/components/ui/separator";
 
 export function Footer() {
   return (
-    <footer className="bg-brand-dark text-white/90 pb-20 lg:pb-0">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="relative border-t border-border bg-black pb-20 md:pb-8">
+      {/* Top gold accent line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/50 to-transparent" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Col 1: Brand */}
-          <div>
-            <div className="flex items-center gap-2 font-bold text-xl mb-4">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white text-sm font-bold">
-                OE
+          {/* Brand */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="flex items-center gap-2 mb-4">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-black">
+                <Zap className="h-5 w-5" />
               </div>
-              {SITE_CONFIG.name}
-            </div>
-            <p className="text-white/60 text-sm leading-relaxed">
-              {SITE_CONFIG.tagline}. {SITE_CONFIG.address.city} merkezli
-              profesyonel oto elektronik onarım hizmeti.
+              <span className="text-lg font-black text-foreground">
+                {siteConfig.name}
+              </span>
+            </Link>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              {siteConfig.description}
             </p>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+              Şu an açığız
+            </div>
           </div>
 
-          {/* Col 2: Hizmetler */}
+          {/* Services */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white/40">
-              Hizmetler
-            </h3>
-            <ul className="space-y-2">
-              {services.map((s) => (
-                <li key={s.slug}>
+            <h4 className="text-sm font-bold text-brand uppercase tracking-wider mb-4">
+              Hizmetlerimiz
+            </h4>
+            <ul className="space-y-2.5">
+              {services.map((service) => (
+                <li key={service.slug}>
                   <Link
-                    href={`/services/${s.slug}`}
-                    className="text-sm text-white/60 hover:text-white transition-colors"
+                    href={`/services/${service.slug}`}
+                    className="group text-sm text-muted-foreground hover:text-brand transition-colors flex items-center gap-1.5"
                   >
-                    {s.shortTitle}
+                    <span className="h-px w-3 bg-border group-hover:w-5 group-hover:bg-brand transition-all" />
+                    {service.shortTitle}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 3: Sayfalar */}
+          {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white/40">
-              Sayfalar
-            </h3>
-            <ul className="space-y-2">
+            <h4 className="text-sm font-bold text-brand uppercase tracking-wider mb-4">
+              Hızlı Bağlantılar
+            </h4>
+            <ul className="space-y-2.5">
               {[
-                { href: "/about", label: "Hakkımızda" },
-                { href: "/faults", label: "Arıza Rehberi" },
-                { href: "/blog", label: "Blog" },
-                { href: "/contact", label: "İletişim" },
+                { label: "Hakkımızda", href: "/about" },
+                { label: "Arızalar", href: "/faults" },
+                { label: "Blog", href: "/blog" },
+                { label: "İletişim", href: "/contact" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/60 hover:text-white transition-colors"
+                    className="group text-sm text-muted-foreground hover:text-brand transition-colors flex items-center gap-1.5"
                   >
+                    <span className="h-px w-3 bg-border group-hover:w-5 group-hover:bg-brand transition-all" />
                     {link.label}
                   </Link>
                 </li>
@@ -66,54 +75,46 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: İletişim */}
+          {/* Contact */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white/40">
+            <h4 className="text-sm font-bold text-brand uppercase tracking-wider mb-4">
               İletişim
-            </h3>
-            <ul className="space-y-3 text-sm text-white/60">
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-white/40" />
-                <span>
-                  {SITE_CONFIG.address.street}, {SITE_CONFIG.address.district}/{SITE_CONFIG.address.city}
-                </span>
-              </li>
+            </h4>
+            <ul className="space-y-3">
               <li>
                 <a
-                  href={`tel:${SITE_CONFIG.phone}`}
-                  className="flex items-center gap-2 hover:text-white transition-colors"
+                  href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-brand transition-colors"
                 >
-                  <Phone className="h-4 w-4 shrink-0 text-white/40" />
-                  {SITE_CONFIG.phone}
+                  <Phone className="h-4 w-4 text-brand" />
+                  {siteConfig.phone}
                 </a>
               </li>
               <li>
                 <a
-                  href={`mailto:${SITE_CONFIG.email}`}
-                  className="flex items-center gap-2 hover:text-white transition-colors"
+                  href={`mailto:${siteConfig.email}`}
+                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-brand transition-colors"
                 >
-                  <Mail className="h-4 w-4 shrink-0 text-white/40" />
-                  {SITE_CONFIG.email}
+                  <Mail className="h-4 w-4 text-brand" />
+                  {siteConfig.email}
                 </a>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4 text-brand mt-0.5 shrink-0" />
+                {siteConfig.address.street}, {siteConfig.address.district}/{siteConfig.address.city}
               </li>
             </ul>
-            <div className="mt-4 text-sm text-white/40">
-              <p>Hafta içi: {SITE_CONFIG.hours.weekdays}</p>
-              <p>Cumartesi: {SITE_CONFIG.hours.saturday}</p>
-              <p>Pazar: {SITE_CONFIG.hours.sunday}</p>
-            </div>
           </div>
         </div>
 
-        <Separator className="my-10 bg-white/10" />
-
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/40">
-          <p>
-            © {new Date().getFullYear()} {SITE_CONFIG.name}. Tüm hakları
-            saklıdır.
+        {/* Bottom bar */}
+        <div className="mt-12 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-muted-foreground">
+            © {new Date().getFullYear()} {siteConfig.name}. Tüm hakları saklıdır.
           </p>
-          <p>
-            Profesyonel oto elektronik onarım — {SITE_CONFIG.address.city}
+          <p className="text-xs text-muted-foreground flex items-center gap-1">
+            <Zap className="h-3 w-3 text-brand" />
+            Profesyonel oto elektronik çözümleri
           </p>
         </div>
       </div>

@@ -30,8 +30,7 @@ export default function AboutPage() {
 
       <div className="max-w-3xl mx-auto mb-16">
         <ScrollReveal>
-          {/* TODO: Replace with real about text */}
-          <div className="prose prose-lg text-muted-foreground max-w-none">
+          <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
             <p>
               {SITE_CONFIG.name}, {SITE_CONFIG.address.city} merkezli olarak
               Opel ve Chevrolet araçlara özel elektronik onarım hizmeti
@@ -53,11 +52,11 @@ export default function AboutPage() {
       <div className="grid gap-6 grid-cols-2 lg:grid-cols-4">
         {stats.map((stat, i) => (
           <ScrollReveal key={stat.label} delay={i * 0.1}>
-            <div className="text-center rounded-2xl border border-border bg-card p-6 shadow-sm">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand mb-3">
+            <div className="group text-center rounded-2xl border border-border bg-card p-6 transition-all duration-500 hover:border-brand/40 hover:shadow-lg hover:shadow-brand/10">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand mb-3 group-hover:bg-brand group-hover:text-black transition-all duration-500">
                 <stat.icon className="h-6 w-6" />
               </div>
-              <div className="text-3xl font-bold text-foreground">
+              <div className="text-3xl font-black text-brand">
                 {stat.value}
               </div>
               <div className="text-sm text-muted-foreground mt-1">

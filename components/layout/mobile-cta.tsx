@@ -1,32 +1,23 @@
-"use client";
-
 import { Phone, MessageCircle } from "lucide-react";
-import { SITE_CONFIG } from "@/lib/content/site-config";
-
-// ============================================================
-// Sticky bottom CTA bar for mobile — call + WhatsApp
-// ============================================================
+import { SITE_CONFIG as siteConfig } from "@/lib/content/site-config";
 
 export function MobileCTA() {
+  const phoneClean = siteConfig.phone.replace(/[\s+]/g, "");
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden border-t border-border bg-white/95 backdrop-blur-lg safe-area-bottom">
-      <div className="grid grid-cols-2 divide-x divide-border">
+    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t border-brand/20 bg-black/95 backdrop-blur-xl">
+      <div className="grid grid-cols-2 divide-x divide-brand/20">
         <a
-          href={`tel:${SITE_CONFIG.phone}`}
-          className="flex items-center justify-center gap-2 py-3.5 text-sm font-semibold text-brand hover:bg-brand-50 transition-colors"
-          aria-label="Telefon ile ara"
+          href={`tel:+${phoneClean}`}
+          className="flex items-center justify-center gap-2 py-3.5 text-sm font-bold text-brand active:bg-brand/10 transition-colors"
         >
-          <Phone className="h-4 w-4" />
+          <Phone className="h-5 w-5" />
           Hemen Ara
         </a>
         <a
-          href={SITE_CONFIG.social.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 py-3.5 text-sm font-semibold text-green-700 hover:bg-green-50 transition-colors"
-          aria-label="WhatsApp ile yaz"
+          href={`https://wa.me/${phoneClean}?text=${encodeURIComponent("Merhaba, araç elektronik onarım hakkında bilgi almak istiyorum.")}`}
+          className="flex items-center justify-center gap-2 py-3.5 text-sm font-bold text-green-400 active:bg-green-500/10 transition-colors"
         >
-          <MessageCircle className="h-4 w-4" />
+          <MessageCircle className="h-5 w-5" />
           WhatsApp
         </a>
       </div>

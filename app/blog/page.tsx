@@ -11,7 +11,6 @@ export const metadata: Metadata = createPageMetadata({
   path: "/blog",
 });
 
-// TODO: Replace with real blog posts (MDX, CMS, or static data)
 const placeholderPosts = [
   {
     slug: "ecu-nedir",
@@ -47,24 +46,26 @@ export default function BlogPage() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {placeholderPosts.map((post, i) => (
           <ScrollReveal key={post.slug} delay={i * 0.1}>
-            <article className="rounded-2xl border border-border bg-card p-6 shadow-sm hover:shadow-md hover:border-brand/20 transition-all h-full flex flex-col">
-              <time className="text-xs text-muted-foreground mb-2">
-                {new Date(post.date).toLocaleDateString("tr-TR", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-              <h2 className="text-lg font-semibold text-foreground mb-2">
-                {post.title}
-              </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed flex-1">
-                {post.excerpt}
-              </p>
-              {/* TODO: Link to /blog/[slug] when blog detail pages are ready */}
-              <span className="mt-4 text-sm font-medium text-brand">
-                Devamını oku →
-              </span>
+            <article className="group relative rounded-2xl border border-border bg-card p-6 transition-all duration-500 hover:shadow-xl hover:shadow-brand/10 hover:-translate-y-2 hover:border-brand/40 h-full flex flex-col">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative flex flex-col flex-1">
+                <time className="text-xs text-brand font-medium mb-3">
+                  {new Date(post.date).toLocaleDateString("tr-TR", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+                <h2 className="text-lg font-bold text-foreground mb-2 group-hover:text-brand transition-colors">
+                  {post.title}
+                </h2>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1">
+                  {post.excerpt}
+                </p>
+                <span className="mt-4 text-sm font-semibold text-brand opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  Devamını oku →
+                </span>
+              </div>
             </article>
           </ScrollReveal>
         ))}

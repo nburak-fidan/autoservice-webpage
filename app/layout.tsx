@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { MobileCTA } from "@/components/layout/mobile-cta";
+import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { defaultMetadata } from "@/lib/seo/metadata";
 
 const inter = Inter({
@@ -26,6 +27,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <MobileCTA />
+        <WhatsAppFloat />
       </body>
     </html>
   );

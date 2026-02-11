@@ -14,7 +14,7 @@ export function FAQSection() {
     <SectionWrapper id="faq">
       <SectionHeader
         title="Sıkça Sorulan Sorular"
-        subtitle="Merak ettiğiniz soruların yanıtlarını burada bulabilirsiniz."
+        subtitle="Merak ettiğiniz soruların cevaplarını burada bulabilirsiniz."
       />
 
       <ScrollReveal>
@@ -24,9 +24,9 @@ export function FAQSection() {
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="rounded-xl border border-border bg-card px-6 shadow-sm data-[state=open]:shadow-md data-[state=open]:border-brand/20 transition-all"
+                className="rounded-xl border border-border bg-card px-6 transition-all duration-300 hover:border-brand/40 data-[state=open]:border-brand/50 data-[state=open]:shadow-lg data-[state=open]:shadow-brand/10"
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-brand py-5 text-[15px]">
+                <AccordionTrigger className="text-left text-sm font-semibold text-foreground hover:text-brand transition-colors py-5 [&[data-state=open]]:text-brand">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-5">

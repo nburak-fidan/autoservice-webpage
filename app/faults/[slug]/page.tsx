@@ -49,7 +49,7 @@ export default async function FaultDetailPage({ params }: Props) {
 
       <div className="max-w-3xl">
         <ScrollReveal>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl text-foreground mb-4">
+          <h1 className="text-3xl font-black tracking-tight sm:text-4xl text-foreground mb-4">
             {fault.title}
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
@@ -58,7 +58,7 @@ export default async function FaultDetailPage({ params }: Props) {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <h2 className="text-xl font-semibold text-foreground mb-4">
+          <h2 className="text-xl font-bold text-foreground mb-4">
             Belirtiler
           </h2>
           <ul className="space-y-3 mb-10">
@@ -67,7 +67,7 @@ export default async function FaultDetailPage({ params }: Props) {
                 key={symptom}
                 className="flex items-start gap-3 text-muted-foreground"
               >
-                <AlertCircle className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" />
+                <AlertCircle className="h-5 w-5 text-brand shrink-0 mt-0.5" />
                 <span>{symptom}</span>
               </li>
             ))}
@@ -76,15 +76,15 @@ export default async function FaultDetailPage({ params }: Props) {
 
         {relatedService && (
           <ScrollReveal delay={0.2}>
-            <div className="rounded-2xl border border-brand/20 bg-brand-50 p-6">
-              <h2 className="text-lg font-semibold text-foreground mb-2">
+            <div className="rounded-2xl border border-brand/30 bg-brand/5 p-6">
+              <h2 className="text-lg font-bold text-foreground mb-2">
                 Bu arıza için çözümümüz
               </h2>
               <p className="text-sm text-muted-foreground mb-4">
                 {relatedService.description}
               </p>
               <Button
-                className="bg-brand hover:bg-brand-light text-white"
+                className="bg-brand hover:bg-brand-light text-black font-bold"
                 asChild
               >
                 <Link href={`/services/${relatedService.slug}`}>

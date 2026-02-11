@@ -8,6 +8,9 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 export function ServicesSection() {
   return (
     <SectionWrapper id="services">
+      {/* Decorative */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-brand/5 rounded-full blur-[120px]" />
+
       <SectionHeader
         title="Hizmetlerimiz"
         subtitle="Opel ve Chevrolet araçlarınız için kapsamlı elektronik onarım çözümleri sunuyoruz."
@@ -18,25 +21,30 @@ export function ServicesSection() {
           <ScrollReveal key={service.slug} delay={i * 0.08}>
             <Link
               href={`/services/${service.slug}`}
-              className="group relative flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-brand/5 hover:-translate-y-1 hover:border-brand/20 h-full"
+              className="group relative flex flex-col rounded-2xl border border-border bg-card p-6 transition-all duration-500 hover:border-brand/40 hover:-translate-y-2 hover:shadow-xl hover:shadow-brand/10 h-full"
             >
-              {/* Icon */}
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand mb-4 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
-                <service.icon className="h-6 w-6" />
-              </div>
+              {/* Hover glow */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* Content */}
-              <h3 className="text-lg font-semibold text-foreground mb-2">
-                {service.shortTitle}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed flex-1">
-                {service.description}
-              </p>
+              <div className="relative">
+                {/* Icon */}
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand/10 text-brand mb-5 group-hover:bg-brand group-hover:text-black transition-all duration-500 group-hover:shadow-lg group-hover:shadow-brand/20">
+                  <service.icon className="h-7 w-7" />
+                </div>
 
-              {/* Link indicator */}
-              <div className="mt-4 flex items-center text-sm font-medium text-brand opacity-0 translate-x-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
-                Detaylı bilgi
-                <ArrowRight className="ml-1 h-4 w-4" />
+                {/* Content */}
+                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-brand transition-colors">
+                  {service.shortTitle}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1">
+                  {service.description}
+                </p>
+
+                {/* Link indicator */}
+                <div className="mt-5 flex items-center text-sm font-semibold text-brand opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  Detaylı bilgi
+                  <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             </Link>
           </ScrollReveal>
