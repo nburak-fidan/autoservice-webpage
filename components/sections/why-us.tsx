@@ -24,7 +24,7 @@ const reasons = [
   },
   {
     icon: Users,
-    title: "5.000+ Mutlu Müşteri",
+    title: "10.000+ Mutlu Müşteri",
     description: "Türkiye genelinden binlerce müşteriye başarılı hizmet verdik.",
   },
   {
