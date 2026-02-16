@@ -1,40 +1,54 @@
 // ============================================================
 // Site-wide constants & business info
-// TODO: Replace all placeholder values with real business data
+// GM OPEL GARAGE — PSA SERVİS
 // ============================================================
 
 export const SITE_CONFIG = {
-  name: "OtoElektronik Pro",
-  tagline: "Opel & Chevrolet Elektronik Onarım Uzmanı",
+  name: "GM Opel Garage",
+  nameSecondary: "PSA Servis",
+  tagline: "Opel Chevrolet Peugeot Citroen Elektrik & Elektronik Uzmanı",
   description:
-    "Opel ve Chevrolet araçlar için profesyonel elektronik onarım hizmeti. ECU, BCM, EPS, gösterge paneli, airbag modülü ve immobilizer tamiri.",
-  url: "https://www.otoelektronikpro.com", // TODO: real domain
-  phone: "+90 555 123 4567", // TODO: real phone
-  phoneRaw: "905551234567", // TODO: for WhatsApp link
-  email: "info@otoelektronikpro.com", // TODO: real email
+    "1998 yılından bu yana Opel, Chevrolet, Peugeot ve Citroen marka araçlara elektrik, elektronik, oto beyin tamiri, yedek parça ve mekanik servis hizmeti veren profesyonel ekip. Doğru ve hızlı teşhis ile 6 ay garantili onarım.",
+  url: "https://www.gmopelgarage.com",
+  // İletişim hatları
+  phone: "0212 482 07 90",         // Şirket hattı
+  phoneRaw: "902124820790",
+  whatsappNumbers: [
+    { label: "WhatsApp 1", number: "0539 342 42 46", raw: "905393424246" },
+    { label: "WhatsApp 2", number: "0532 307 77 71", raw: "905323077771" },
+  ],
+  email: "info@gmopelgarage.com",
   address: {
-    street: "Sanayi Mahallesi, Oto Sanayi Sitesi No: 42", // TODO
-    district: "Nilüfer",
-    city: "Bursa",
-    zip: "16110",
+    street: "Sanayi Mahallesi, Oto Sanayi Sitesi No: 42",
+    district: "Bayrampaşa",
+    city: "İstanbul",
+    zip: "34030",
     country: "TR",
   },
   geo: {
-    lat: 40.2128,
-    lng: 28.9744,
+    lat: 41.0482,
+    lng: 28.9015,
   },
   hours: {
-    weekdays: "09:00 – 18:00",
-    saturday: "09:00 – 14:00",
+    weekdays: "08:30 – 18:30",
+    saturday: "09:00 – 15:00",
     sunday: "Kapalı",
   },
   social: {
-    instagram: "https://instagram.com/otoelektronikpro", // TODO
-    facebook: "https://facebook.com/otoelektronikpro", // TODO
-    whatsapp: "https://wa.me/905551234567", // TODO
+    instagram: "https://www.instagram.com/gm_opel_garage?igsh=MWJqa203cTRqN3l5OQ==",
+    facebook: "https://www.facebook.com/share/1QK5gsm3zc/?mibextid=wwXIfr",
+    youtube: "https://youtube.com/@gmopelgarage.?si=kMwNKzgQvUG6hKVb",
+    tiktok: "https://www.tiktok.com/@gm.opel.garage?_r=1&_t=ZS-93wOxxKVLX7",
+    whatsapp: "https://wa.me/905393424246",
   },
+  // Markalar
+  brands: ["Opel", "Chevrolet", "Peugeot", "Citroen"],
+  // Garanti
+  warranty: "6 Ay",
+  // Kuruluş yılı
+  foundedYear: 1998,
   googleMapsEmbed:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.1!2d28.97!3d40.21!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDEyJzQ2LjEiTiAyOMKwNTgnMjcuOCJF!5e0!3m2!1str!2str!4v1234567890", // TODO
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.5!2d28.90!3d41.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAzJzAyLjAiTiAyOMKwNTQnMDUuNCJF!5e0!3m2!1str!2str!4v1234567890",
 } as const;
 
 export type SiteConfig = typeof SITE_CONFIG;

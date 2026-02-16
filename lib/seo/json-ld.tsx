@@ -41,7 +41,12 @@ export function buildLocalBusinessSchema() {
         closes: "14:00",
       },
     ],
-    sameAs: [SITE_CONFIG.social.instagram, SITE_CONFIG.social.facebook],
+    sameAs: [
+      SITE_CONFIG.social.instagram,
+      SITE_CONFIG.social.facebook,
+      SITE_CONFIG.social.youtube,
+      SITE_CONFIG.social.tiktok,
+    ].filter(Boolean),
     priceRange: "₺₺",
     image: `${SITE_CONFIG.url}/og-image.jpg`, // TODO: add real OG image
     areaServed: {

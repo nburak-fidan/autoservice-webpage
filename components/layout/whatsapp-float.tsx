@@ -14,11 +14,11 @@ const quickMessages = [
 
 export function WhatsAppFloat() {
   const [isOpen, setIsOpen] = useState(false);
-  const phoneClean = siteConfig.phone.replace(/[\s+]/g, "");
+  const primaryWA = siteConfig.whatsappNumbers[0].raw;
 
   const sendMessage = (msg: string) => {
     window.open(
-      `https://wa.me/${phoneClean}?text=${encodeURIComponent(msg)}`,
+      `https://wa.me/${primaryWA}?text=${encodeURIComponent(msg)}`,
       "_blank"
     );
     setIsOpen(false);
@@ -53,7 +53,7 @@ export function WhatsAppFloat() {
                 {/* Incoming message bubble */}
                 <div className="bg-card rounded-xl rounded-tl-sm p-3 mb-4 max-w-[85%] border border-border">
                   <p className="text-sm text-foreground">
-                    Merhaba! 👋 Araç elektronik onarımı hakkında nasıl yardımcı olabiliriz?
+                    Merhaba! 👋 {siteConfig.brands.join(", ")} araç onarımı hakkında nasıl yardımcı olabiliriz?
                   </p>
                   <p className="text-[10px] text-muted-foreground mt-1 text-right">Şimdi</p>
                 </div>
@@ -74,10 +74,10 @@ export function WhatsAppFloat() {
                 </div>
               </div>
 
-              {/* Footer input */}
+              {/* Footer */}
               <div className="p-3 border-t border-border bg-card">
                 <a
-                  href={`https://wa.me/${phoneClean}?text=${encodeURIComponent("Merhaba, bilgi almak istiyorum.")}`}
+                  href={`https://wa.me/${primaryWA}?text=${encodeURIComponent("Merhaba, bilgi almak istiyorum.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-green-600 text-white text-sm font-bold hover:bg-green-700 transition-colors"

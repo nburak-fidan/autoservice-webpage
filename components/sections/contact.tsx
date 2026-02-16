@@ -11,20 +11,26 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 
-const contactInfo = [
+const contactInfo: {
+  icon: typeof Phone;
+  label: string;
+  value: string;
+  href?: string;
+  accent?: boolean;
+}[] = [
   {
     icon: Phone,
-    label: "Telefon",
+    label: "Şirket Hattı",
     value: siteConfig.phone,
     href: `tel:${siteConfig.phone.replace(/\s/g, "")}`,
   },
-  {
-    icon: MessageCircle,
-    label: "WhatsApp",
-    value: siteConfig.phone,
-    href: `https://wa.me/${siteConfig.phone.replace(/[\s+]/g, "")}`,
+  ...siteConfig.whatsappNumbers.map((wp) => ({
+    icon: MessageCircle as typeof Phone,
+    label: `WhatsApp`,
+    value: wp.number,
+    href: `https://wa.me/${wp.raw}`,
     accent: true,
-  },
+  })),
   {
     icon: Mail,
     label: "E-posta",
@@ -61,7 +67,7 @@ export function ContactSection() {
           <div className="space-y-4">
             {contactInfo.map((item, i) => (
               <motion.div
-                key={item.label}
+                key={`${item.label}-${i}`}
                 className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-border/50 bg-card p-5 transition-all duration-300 hover:border-brand/40 hover:shadow-md hover:shadow-brand/10"
                 whileHover={{ x: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -86,6 +92,8 @@ export function ContactSection() {
                   {item.href ? (
                     <a
                       href={item.href}
+                      target={item.accent ? "_blank" : undefined}
+                      rel={item.accent ? "noopener noreferrer" : undefined}
                       className="text-sm font-semibold text-foreground hover:text-brand transition-colors"
                     >
                       {item.value}

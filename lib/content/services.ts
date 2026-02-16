@@ -28,7 +28,7 @@ export const services: Service[] = [
     title: "ECU (Motor Beyni) Tamiri",
     shortTitle: "ECU Tamiri",
     description:
-      "Opel ve Chevrolet araçlarda motor kontrol ünitesi arıza tespiti, onarımı ve yazılım güncelleme hizmeti.",
+      "Opel, Chevrolet, Peugeot ve Citroen araçlarda motor kontrol ünitesi arıza tespiti, onarımı ve yazılım güncelleme hizmeti.",
     longDescription:
       "Motor kontrol ünitesi (ECU), aracınızın kalbini yöneten en kritik elektronik bileşendir. Uzman ekibimiz, ECU arızalarını son teknoloji ekipmanlarla tespit eder ve onarır. Yazılım güncelleme, harita yükleme ve kalibrasyon işlemleri yapılır.",
     icon: Cpu,
@@ -38,7 +38,12 @@ export const services: Service[] = [
       "Motor performans optimizasyonu",
       "İmmobilizer entegrasyon",
     ],
-    brands: ["Opel Astra", "Opel Corsa", "Opel Insignia", "Chevrolet Cruze", "Chevrolet Aveo"],
+    brands: [
+      "Opel Astra", "Opel Corsa", "Opel Insignia",
+      "Chevrolet Cruze", "Chevrolet Aveo",
+      "Peugeot 301", "Peugeot 308", "Peugeot 3008",
+      "Citroen C3", "Citroen C4", "Citroen C-Elysée",
+    ],
   },
   {
     slug: "bcm-tamiri",
@@ -55,7 +60,12 @@ export const services: Service[] = [
       "Elektrikli cam ve ayna tamiri",
       "Kodlama ve programlama",
     ],
-    brands: ["Opel Astra J/K", "Opel Corsa D/E", "Opel Mokka", "Chevrolet Cruze"],
+    brands: [
+      "Opel Astra J/K", "Opel Corsa D/E", "Opel Mokka",
+      "Chevrolet Cruze",
+      "Peugeot 308", "Peugeot 508",
+      "Citroen C4", "Citroen C5",
+    ],
   },
   {
     slug: "eps-tamiri",
@@ -72,7 +82,11 @@ export const services: Service[] = [
       "Yazılım kalibrasyonu",
       "Direksiyon açı sensörü",
     ],
-    brands: ["Opel Corsa D/E", "Opel Astra H/J", "Opel Meriva", "Opel Zafira"],
+    brands: [
+      "Opel Corsa D/E", "Opel Astra H/J", "Opel Meriva", "Opel Zafira",
+      "Peugeot 207", "Peugeot 308",
+      "Citroen C3", "Citroen C4",
+    ],
   },
   {
     slug: "gosterge-paneli-tamiri",
@@ -89,7 +103,11 @@ export const services: Service[] = [
       "Piksel onarımı",
       "Aydınlatma tamiri",
     ],
-    brands: ["Opel Astra H/J/K", "Opel Corsa D/E", "Opel Insignia", "Opel Vectra C"],
+    brands: [
+      "Opel Astra H/J/K", "Opel Corsa D/E", "Opel Insignia", "Opel Vectra C",
+      "Peugeot 206", "Peugeot 307", "Peugeot 308",
+      "Citroen C2", "Citroen C3", "Citroen C4",
+    ],
   },
   {
     slug: "airbag-modulu-tamiri",
@@ -106,7 +124,12 @@ export const services: Service[] = [
       "Koltuk sensörü tamiri",
       "Arıza lambası çözümü",
     ],
-    brands: ["Opel Astra", "Opel Corsa", "Opel Insignia", "Chevrolet Cruze", "Chevrolet Aveo"],
+    brands: [
+      "Opel Astra", "Opel Corsa", "Opel Insignia",
+      "Chevrolet Cruze", "Chevrolet Aveo",
+      "Peugeot 301", "Peugeot 308", "Peugeot 3008",
+      "Citroen C3", "Citroen C4", "Citroen C-Elysée",
+    ],
   },
   {
     slug: "immobilizer-tamiri",
@@ -123,7 +146,12 @@ export const services: Service[] = [
       "Yedek anahtar yapımı",
       "PIN kodu hesaplama",
     ],
-    brands: ["Opel Astra", "Opel Corsa", "Opel Vectra", "Opel Zafira", "Chevrolet"],
+    brands: [
+      "Opel Astra", "Opel Corsa", "Opel Vectra", "Opel Zafira",
+      "Chevrolet Cruze", "Chevrolet Aveo",
+      "Peugeot 301", "Peugeot 308",
+      "Citroen C3", "Citroen C4", "Citroen C-Elysée",
+    ],
   },
 ];
 

@@ -13,25 +13,25 @@ export const metadata: Metadata = createPageMetadata({
 
 const placeholderPosts = [
   {
-    slug: "ecu-nedir",
-    title: "ECU Nedir? Motor Beyni Hakkında Bilmeniz Gerekenler",
+    slug: "motor-beyni-arizasi-nasil-anlasilir",
+    title: "Motor Beyni Arızası Nasıl Anlaşılır?",
     excerpt:
-      "Motor kontrol ünitesi (ECU) aracınızın en kritik elektronik bileşenidir. Bu yazıda ECU'nun çalışma prensibini açıklıyoruz.",
-    date: "2026-01-15",
+      "Aracınız ani güç kayıpları yaşıyor, rölantide titriyor ya da check engine lambası sürekli yanıyorsa motor beyni (ECU) arızası söz konusu olabilir. Yakıt tüketiminde açıklanamayan artış, vites geçişlerinde sertlik ve zaman zaman aracın hiç çalışmaması da ECU kaynaklı sorunların en yaygın belirtileri arasındadır. Bu tür semptomlarla karşılaştığınızda profesyonel bir teşhis cihazıyla arıza kodlarının okunması, doğru müdahale için ilk ve en önemli adımdır.",
+    date: "2026-02-10",
   },
   {
-    slug: "eps-arizasi-belirtileri",
-    title: "EPS Arızası Belirtileri ve Çözümleri",
+    slug: "ecu-tamiri-mi-degisim-mi",
+    title: "ECU Tamiri mi Değişim mi?",
     excerpt:
-      "Elektrikli direksiyon sistemi arızaları nasıl anlaşılır? Belirtileri ve çözüm yollarını öğrenin.",
-    date: "2026-01-08",
+      "Motor beyni arızalandığında pek çok servis doğrudan yeni ünite değişimi önerir; ancak bu her zaman gerekli değildir. Yazılımsal hatalar, yanmış devre elemanları veya bağlantı sorunlarının büyük çoğunluğu profesyonel tamir ile çözülebilir — hem de değişim maliyetinin çok altında. Sıfır ECU değişimi binlerce liraya mal olurken, tamir işlemi çoğu zaman aynı gün tamamlanıp 6 ay garantiyle teslim edilir. Değişim yalnızca işlemci veya ana kartın fiziksel olarak hasar gördüğü ileri düzey vakalarda kaçınılmazdır.",
+    date: "2026-01-25",
   },
   {
-    slug: "airbag-lambasi-neden-yanar",
-    title: "Airbag Lambası Neden Yanar?",
+    slug: "elektronik-ariza-isiklari",
+    title: "Elektronik Arıza Işıkları Ne Anlama Gelir?",
     excerpt:
-      "Airbag uyarı lambasının yanma nedenleri ve yapmanız gerekenler hakkında detaylı bilgi.",
-    date: "2025-12-20",
+      "Gösterge panelinizdeki uyarı lambaları, aracınızın sağlık durumu hakkında doğrudan bilgi verir. Check engine (motor arızası), ABS, airbag, EPS (direksiyon) ve akü ikaz lambaları en sık karşılaşılan uyarılardır. Bu ışıkların yanması her zaman büyük bir arıza olduğu anlamına gelmez; bazen bir sensör hatası ya da yazılımsal aksaklık da aynı uyarıyı tetikleyebilir. Ancak görmezden gelmek ciddi hasarlara yol açabilir. Uyarı yandığında en kısa sürede profesyonel arıza tespiti yaptırmanız hem güvenliğiniz hem de bütçeniz açısından en doğru karardır.",
+    date: "2026-01-12",
   },
 ];
 

@@ -1,24 +1,70 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
+import { useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, ShieldCheck, Clock, Award, ChevronDown, Zap } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/content/site-config";
-import { CounterStat } from "@/components/ui/counter-stat";
+
+const currentYear = new Date().getFullYear();
+const yearsExperience = currentYear - SITE_CONFIG.foundedYear;
 
 const trustChips = [
-  { icon: ShieldCheck, label: "12 Ay Garanti" },
+  { icon: ShieldCheck, label: `${SITE_CONFIG.warranty} Garanti` },
   { icon: Clock, label: "Aynı Gün Teslimat" },
-  { icon: Award, label: "15+ Yıl Deneyim" },
+  { icon: Award, label: `${yearsExperience}+ Yıl Deneyim` },
 ];
 
 const stats = [
-  { value: 15, suffix: "+", label: "Yıl Deneyim" },
-  { value: 5000, suffix: "+", label: "Mutlu Müşteri" },
+  { value: yearsExperience, suffix: "+", label: "Yıl Deneyim" },
+  { value: 10000, suffix: "+", label: "Mutlu Müşteri" },
   { value: 10000, suffix: "+", label: "Başarılı Onarım" },
-  { value: 98, suffix: "%", label: "Memnuniyet" },
 ];
+
+/* ── Inline animated counter (small-sized for hero card) ── */
+function HeroCounter({ value, suffix = "", delay = 0 }: { value: number; suffix?: string; delay?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const timer = setTimeout(() => {
+      const duration = 2000;
+      const steps = 60;
+      const increment = value / steps;
+      let current = 0;
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= value) {
+          setCount(value);
+          clearInterval(interval);
+        } else {
+          setCount(Math.floor(current));
+        }
+      }, duration / steps);
+      return () => clearInterval(interval);
+    }, delay * 1000);
+    return () => clearTimeout(timer);
+  }, [isInView, value, delay]);
+
+  const display = count >= 1000
+    ? new Intl.NumberFormat("tr-TR").format(count)
+    : String(count);
+
+  return (
+    <motion.span
+      ref={ref}
+      className="text-2xl sm:text-3xl font-black text-gradient-gold inline-block"
+      initial={{ opacity: 0, y: 15 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay }}
+    >
+      {display}{suffix}
+    </motion.span>
+  );
+}
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -84,8 +130,7 @@ export function HeroSection() {
         style={{ opacity: contentOpacity }}
         className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full pt-32 pb-24 md:pt-40 md:pb-32"
       >
-        {/* Two-column layout: text left + stats right on large screens */}
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-center">
           {/* ── Left column (3/5) ── */}
           <div className="lg:col-span-3">
             {/* Badge */}
@@ -96,7 +141,7 @@ export function HeroSection() {
             >
               <span className="inline-flex items-center gap-2 rounded-full bg-brand/10 border border-brand/25 px-5 py-2.5 text-xs font-bold text-brand uppercase tracking-widest backdrop-blur-sm">
                 <Zap className="h-3.5 w-3.5" />
-                Opel & Chevrolet Uzmanı
+                {SITE_CONFIG.foundedYear}&apos;den Beri Hizmetinizde
               </span>
             </motion.div>
 
@@ -107,22 +152,31 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-white">Araç Elektroniğinde</span>
+              <span className="text-white">{SITE_CONFIG.name}</span>
               <br />
-              <span className="text-gradient-gold">Uzman Çözüm</span>
+              <span className="text-gradient-gold">{SITE_CONFIG.nameSecondary}</span>
             </motion.h1>
+
+            {/* Brand list */}
+            <motion.p
+              className="mt-3 text-base sm:text-lg font-medium text-white/40 tracking-wide"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              {SITE_CONFIG.brands.join(" • ")}
+            </motion.p>
 
             {/* Subheadline */}
             <motion.p
-              className="mt-6 text-base sm:text-lg text-white/55 leading-relaxed max-w-xl"
+              className="mt-5 text-base sm:text-lg text-white/55 leading-relaxed max-w-xl"
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
             >
-              ECU, BCM, EPS, gösterge paneli, airbag modülü ve immobilizer
-              onarımında{" "}
-              <strong className="text-brand font-semibold">15 yılı aşkın deneyim</strong>.
-              Profesyonel teşhis, garantili onarım, uygun fiyat.
+              {SITE_CONFIG.foundedYear} yılından bu yana Opel, Chevrolet, Peugeot ve Citroen araçlara elektrik, elektronik, oto beyin tamiri ve mekanik servis hizmeti.{" "}
+              <strong className="text-brand font-semibold">{SITE_CONFIG.warranty} garantili</strong>{" "}
+              profesyonel onarım.
             </motion.p>
 
             {/* Trust chips */}
@@ -156,7 +210,7 @@ export function HeroSection() {
                 className="bg-brand hover:bg-brand-light text-black text-base font-black px-8 h-13 shadow-xl shadow-brand/20 hover:shadow-brand/40 transition-all duration-300"
                 asChild
               >
-                <a href={`tel:${SITE_CONFIG.phone}`}>
+                <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}>
                   <Phone className="mr-2 h-5 w-5" />
                   Hemen Ara
                 </a>
@@ -179,62 +233,78 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* ── Right column (2/5) — Stats card ── */}
+          {/* ── Right column (2/5) — Stats + Contact card ── */}
           <motion.div
             className="lg:col-span-2"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-md p-8 sm:p-10">
+            <div className="relative rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-md overflow-hidden">
               {/* Top accent */}
-              <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-brand/60 to-transparent" />
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand/60 to-transparent" />
               {/* Corner glow */}
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand/10 rounded-full blur-[60px]" />
 
-              <div className="grid grid-cols-2 gap-x-6 gap-y-8">
-                {stats.map((stat, i) => (
-                  <div
-                    key={stat.label}
-                    className="relative text-center lg:text-left"
-                  >
-                    <CounterStat
-                      value={stat.value}
-                      suffix={stat.suffix}
-                      delay={0.7 + i * 0.15}
-                    />
-                    <p className="text-xs text-white/35 uppercase tracking-wider font-medium mt-1">
-                      {stat.label}
-                    </p>
-                    {/* Divider between rows */}
-                    {i < 2 && (
-                      <div className="absolute -bottom-4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-                    )}
-                  </div>
-                ))}
+              {/* ── Stats row ── */}
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center justify-between gap-2">
+                  {stats.map((stat, i) => (
+                    <div key={stat.label} className="flex-1 text-center min-w-0">
+                      <HeroCounter value={stat.value} suffix={stat.suffix} delay={0.7 + i * 0.15} />
+                      <p className="text-[10px] sm:text-xs text-white/35 uppercase tracking-wider font-medium mt-1 truncate">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Mini CTA inside card */}
-              <div className="mt-8 pt-6 border-t border-white/[0.06]">
-                <p className="text-xs text-white/30 uppercase tracking-wider mb-3">
+              {/* ── Divider ── */}
+              <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+
+              {/* ── Contact list ── */}
+              <div className="p-6 sm:p-8 space-y-3">
+                <p className="text-[10px] sm:text-xs text-white/30 uppercase tracking-wider font-medium mb-4">
                   Hızlı İletişim
                 </p>
+
+                {/* Şirket hattı */}
                 <a
-                  href={`tel:${SITE_CONFIG.phone}`}
+                  href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}
                   className="flex items-center gap-3 text-white/70 hover:text-brand transition-colors group"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand group-hover:bg-brand group-hover:text-black transition-all duration-300">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand group-hover:bg-brand group-hover:text-black transition-all duration-300">
                     <Phone className="h-4 w-4" />
                   </div>
-                  <div>
-                    <p className="text-sm font-bold text-white/80 group-hover:text-brand transition-colors">
+                  <div className="min-w-0">
+                    <p className="text-sm font-bold text-white/80 group-hover:text-brand transition-colors truncate">
                       {SITE_CONFIG.phone}
                     </p>
-                    <p className="text-[11px] text-white/30">
-                      Hafta içi 08:30 - 18:30
-                    </p>
+                    <p className="text-[11px] text-white/30">Şirket Hattı</p>
                   </div>
                 </a>
+
+                {/* WhatsApp numaraları */}
+                {SITE_CONFIG.whatsappNumbers.map((wp) => (
+                  <a
+                    key={wp.raw}
+                    href={`https://wa.me/${wp.raw}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-white/70 hover:text-green-400 transition-colors group"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-green-500/10 text-green-400 group-hover:bg-green-500 group-hover:text-white transition-all duration-300">
+                      <MessageCircle className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-sm font-bold text-white/80 group-hover:text-green-400 transition-colors truncate">
+                        {wp.number}
+                      </p>
+                      <p className="text-[11px] text-white/30">WhatsApp</p>
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -248,9 +318,7 @@ export function HeroSection() {
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] text-white/25 uppercase tracking-widest">
-            Keşfet
-          </span>
+          <span className="text-[10px] text-white/25 uppercase tracking-widest">Keşfet</span>
           <ChevronDown className="h-5 w-5 text-brand/50" />
         </div>
       </motion.div>

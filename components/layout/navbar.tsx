@@ -47,9 +47,14 @@ export function Navbar() {
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand text-black font-black text-sm transition-all group-hover:shadow-lg group-hover:shadow-brand/30">
             <Zap className="h-5 w-5" />
           </div>
-          <span className="hidden sm:inline font-bold text-lg tracking-tight text-white group-hover:text-brand transition-colors">
-            {SITE_CONFIG.name}
-          </span>
+          <div className="hidden sm:flex flex-col leading-none">
+            <span className="font-black text-base tracking-tight text-white group-hover:text-brand transition-colors">
+              {SITE_CONFIG.name}
+            </span>
+            <span className="text-[10px] font-medium text-brand/70 tracking-wider uppercase">
+              {SITE_CONFIG.nameSecondary}
+            </span>
+          </div>
         </Link>
 
         {/* Desktop nav */}
@@ -70,7 +75,7 @@ export function Navbar() {
         {/* Desktop CTAs */}
         <div className="hidden lg:flex items-center gap-2">
           <Button variant="ghost" size="sm" className="text-white/70 hover:text-brand hover:bg-brand/10" asChild>
-            <a href={`tel:${SITE_CONFIG.phone}`} aria-label="Bizi arayın">
+            <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`} aria-label="Bizi arayın">
               <Phone className="mr-1.5 h-4 w-4" />
               Ara
             </a>
@@ -81,7 +86,7 @@ export function Navbar() {
               WhatsApp
             </a>
           </Button>
-          <Button size="sm" className="bg-brand hover:bg-brand-light text-black font-semibold animate-pulse-glow" asChild>
+          <Button size="sm" className="bg-brand hover:bg-brand-light text-black font-semibold" asChild>
             <a href={`https://maps.google.com/?q=${SITE_CONFIG.geo.lat},${SITE_CONFIG.geo.lng}`} target="_blank" rel="noopener noreferrer" aria-label="Yol tarifi al">
               <MapPin className="mr-1.5 h-4 w-4" />
               Yol Tarifi
@@ -129,17 +134,19 @@ export function Navbar() {
               ))}
               <div className="mt-6 flex flex-col gap-3 pt-6 border-t border-border">
                 <Button className="w-full bg-brand hover:bg-brand-light text-black font-semibold" asChild>
-                  <a href={`tel:${SITE_CONFIG.phone}`}>
+                  <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}>
                     <Phone className="mr-2 h-4 w-4" />
-                    Hemen Ara
+                    {SITE_CONFIG.phone}
                   </a>
                 </Button>
-                <Button variant="outline" className="w-full border-green-500/30 text-green-400 hover:bg-green-500/10" asChild>
-                  <a href={SITE_CONFIG.social.whatsapp} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="mr-2 h-4 w-4" />
-                    WhatsApp
-                  </a>
-                </Button>
+                {SITE_CONFIG.whatsappNumbers.map((wp) => (
+                  <Button key={wp.raw} variant="outline" className="w-full border-green-500/30 text-green-400 hover:bg-green-500/10" asChild>
+                    <a href={`https://wa.me/${wp.raw}`} target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="mr-2 h-4 w-4" />
+                      {wp.number}
+                    </a>
+                  </Button>
+                ))}
               </div>
             </div>
           </motion.div>

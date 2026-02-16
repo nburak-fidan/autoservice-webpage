@@ -9,13 +9,16 @@ import { SITE_CONFIG } from "@/lib/content/site-config";
 export const metadata: Metadata = createPageMetadata({
   title: "Hakkımızda",
   description:
-    "Opel ve Chevrolet araç elektroniği onarımında 15 yılı aşkın deneyim. Ekibimizi ve misyonumuzu tanıyın.",
+    `${SITE_CONFIG.name} — ${SITE_CONFIG.foundedYear} yılından bu yana ${SITE_CONFIG.brands.join(", ")} araçlara elektrik, elektronik ve mekanik servis hizmeti.`,
   path: "/about",
 });
 
+const currentYear = new Date().getFullYear();
+const yearsExperience = currentYear - SITE_CONFIG.foundedYear;
+
 const stats = [
-  { icon: Award, value: "15+", label: "Yıl Deneyim" },
-  { icon: Users, value: "5000+", label: "Mutlu Müşteri" },
+  { icon: Award, value: `${yearsExperience}+`, label: "Yıl Deneyim" },
+  { icon: Users, value: "10000+", label: "Mutlu Müşteri" },
   { icon: Wrench, value: "10.000+", label: "Başarılı Onarım" },
   { icon: Target, value: "%98", label: "Müşteri Memnuniyeti" },
 ];
@@ -25,24 +28,31 @@ export default function AboutPage() {
     <SectionWrapper className="pt-28 md:pt-36">
       <SectionHeader
         title="Hakkımızda"
-        subtitle={`${SITE_CONFIG.name} — Araç elektroniğinde güvenilir çözüm ortağınız.`}
+        subtitle={`${SITE_CONFIG.name} — ${SITE_CONFIG.nameSecondary} | Araç elektroniğinde güvenilir çözüm ortağınız.`}
       />
 
       <div className="max-w-3xl mx-auto mb-16">
         <ScrollReveal>
           <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
             <p>
-              {SITE_CONFIG.name}, {SITE_CONFIG.address.city} merkezli olarak
-              Opel ve Chevrolet araçlara özel elektronik onarım hizmeti
-              sunmaktadır. 15 yılı aşkın sektör deneyimimizle, ECU, BCM, EPS,
-              gösterge paneli, airbag modülü ve immobilizer onarımlarında
-              uzmanlaşmış bir ekibiz.
+              {SITE_CONFIG.foundedYear} yılından bu yana {SITE_CONFIG.brands.join(", ")} marka araçlara
+              elektrik ve elektronik hizmeti veren şirketimiz, oto beyin tamirleri, yedek parça
+              hizmeti ve mekanik servis hizmetlerini profesyonel ekibimiz tarafından sunmaktadır.
             </p>
             <p>
-              Son teknoloji teşhis ekipmanları ve orijinal yedek parçalar
-              kullanarak, aracınızın elektronik sorunlarını kısa sürede ve
-              garantili olarak çözüyoruz. Müşteri memnuniyeti ve kaliteli hizmet
-              anlayışımızla sektörde fark yaratıyoruz.
+              Günümüz şartlarında araçlarınızda bulunan oto beyinleri yüksek rakamlarda olup
+              siz değerli müşterilerimizin bütçesini zorlamaktadır. Bizim buradaki amacımız doğru ve
+              hızlı teşhis ile minimum rakamlarla yaptığımız tamir ve tadilat işlemlerini{" "}
+              <strong className="text-brand">{SITE_CONFIG.name}</strong> olarak{" "}
+              <strong className="text-brand">{SITE_CONFIG.warranty} garanti</strong> vererek
+              siz değerli müşterilerimize hizmet sağlamaktayız.
+            </p>
+            <p>
+              {SITE_CONFIG.address.district}/{SITE_CONFIG.address.city} merkezli servisimiz,
+              ECU, BCM, EPS, gösterge paneli, airbag modülü ve immobilizer onarımlarında
+              uzmanlaşmış bir ekipten oluşmaktadır. Son teknoloji teşhis ekipmanları ve
+              orijinal yedek parçalar kullanarak aracınızın elektronik sorunlarını kısa sürede
+              ve garantili olarak çözüyoruz.
             </p>
           </div>
         </ScrollReveal>

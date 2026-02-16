@@ -47,7 +47,7 @@ const campaigns = [
 ];
 
 export function CampaignSection() {
-  const phoneClean = siteConfig.phone.replace(/[\s+]/g, "");
+  const primaryWA = siteConfig.whatsappNumbers[0].raw;
 
   return (
     <SectionWrapper id="campaigns" className="noise-overlay">
@@ -138,7 +138,7 @@ export function CampaignSection() {
 
                 {/* CTA */}
                 <a
-                  href={`https://wa.me/${phoneClean}?text=${encodeURIComponent(`Merhaba, "${campaign.title}" kampanyası hakkında bilgi almak istiyorum.`)}`}
+                  href={`https://wa.me/${primaryWA}?text=${encodeURIComponent(`Merhaba, "${campaign.title}" kampanyası hakkında bilgi almak istiyorum.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

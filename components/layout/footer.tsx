@@ -1,7 +1,14 @@
 import Link from "next/link";
-import { Zap, Phone, Mail, MapPin } from "lucide-react";
+import { Zap, Phone, Mail, MapPin, ExternalLink } from "lucide-react";
 import { SITE_CONFIG as siteConfig } from "@/lib/content/site-config";
 import { services } from "@/lib/content/services";
+
+const socialLinks = [
+  { label: "Instagram", href: siteConfig.social.instagram },
+  { label: "YouTube", href: siteConfig.social.youtube },
+  { label: "TikTok", href: siteConfig.social.tiktok },
+  { label: "Facebook", href: siteConfig.social.facebook },
+];
 
 export function Footer() {
   return (
@@ -17,16 +24,37 @@ export function Footer() {
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-black">
                 <Zap className="h-5 w-5" />
               </div>
-              <span className="text-lg font-black text-foreground">
-                {siteConfig.name}
-              </span>
+              <div className="flex flex-col leading-none">
+                <span className="text-base font-black text-foreground">
+                  {siteConfig.name}
+                </span>
+                <span className="text-[10px] font-medium text-brand/70 tracking-wider uppercase">
+                  {siteConfig.nameSecondary}
+                </span>
+              </div>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              {siteConfig.description}
+              {siteConfig.foundedYear} yılından bu yana {siteConfig.brands.join(", ")} araçlara elektrik, elektronik ve mekanik servis hizmeti.
             </p>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+            <div className="flex items-center gap-2 text-xs text-muted-foreground mb-4">
               <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
               Şu an açığız
+            </div>
+
+            {/* Social media */}
+            <div className="flex flex-wrap gap-2">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-muted-foreground bg-white/[0.03] border border-white/[0.06] hover:text-brand hover:border-brand/30 transition-all duration-300"
+                >
+                  {social.label}
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -81,6 +109,7 @@ export function Footer() {
               İletişim
             </h4>
             <ul className="space-y-3">
+              {/* Şirket hattı */}
               <li>
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
@@ -90,6 +119,21 @@ export function Footer() {
                   {siteConfig.phone}
                 </a>
               </li>
+              {/* WhatsApp numaraları */}
+              {siteConfig.whatsappNumbers.map((wp) => (
+                <li key={wp.raw}>
+                  <a
+                    href={`https://wa.me/${wp.raw}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-green-400 transition-colors"
+                  >
+                    <Phone className="h-4 w-4 text-green-400" />
+                    {wp.number}
+                    <span className="text-[10px] text-green-400/60">(WA)</span>
+                  </a>
+                </li>
+              ))}
               <li>
                 <a
                   href={`mailto:${siteConfig.email}`}
@@ -114,7 +158,7 @@ export function Footer() {
           </p>
           <p className="text-xs text-muted-foreground flex items-center gap-1">
             <Zap className="h-3 w-3 text-brand" />
-            Profesyonel oto elektronik çözümleri
+            {siteConfig.brands.join(" · ")} — Profesyonel oto elektronik çözümleri
           </p>
         </div>
       </div>
