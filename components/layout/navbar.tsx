@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, MessageCircle, MapPin, Menu, X, Zap } from "lucide-react";
+import { Phone, MessageCircle, MapPin, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SITE_CONFIG } from "@/lib/content/site-config";
 import { cn } from "@/lib/utils";
@@ -41,17 +42,23 @@ export function Navbar() {
           : "bg-transparent"
       )}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 md:h-20">
+      <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 md:h-22">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand text-black font-black text-sm transition-all group-hover:shadow-lg group-hover:shadow-brand/30">
-            <Zap className="h-5 w-5" />
+        <Link href="/" className="flex items-center gap-3.5 group">
+          <div className="relative h-12 w-12 md:h-14 md:w-14 transition-transform group-hover:scale-105 drop-shadow-[0_0_8px_rgba(245,183,49,0.15)]">
+            <Image
+              src="/logo.png"
+              alt="GM Opel Garage Logo"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
-          <div className="hidden sm:flex flex-col leading-none">
-            <span className="font-black text-base tracking-tight text-white group-hover:text-brand transition-colors">
+          <div className="hidden sm:flex flex-col leading-tight">
+            <span className="font-black text-lg md:text-xl tracking-tight text-white group-hover:text-brand transition-colors">
               {SITE_CONFIG.name}
             </span>
-            <span className="text-[10px] font-medium text-brand/70 tracking-wider uppercase">
+            <span className="text-[11px] font-semibold text-brand/60 tracking-widest uppercase">
               {SITE_CONFIG.nameSecondary}
             </span>
           </div>

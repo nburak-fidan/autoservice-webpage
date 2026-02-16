@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Zap, Phone, Mail, MapPin, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail, MapPin, ExternalLink } from "lucide-react";
 import { SITE_CONFIG as siteConfig } from "@/lib/content/site-config";
 import { services } from "@/lib/content/services";
 
@@ -20,15 +21,20 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-black">
-                <Zap className="h-5 w-5" />
+            <Link href="/" className="inline-flex items-center gap-4 mb-5 group">
+              <div className="relative h-16 w-16 transition-transform group-hover:scale-105 drop-shadow-[0_0_12px_rgba(245,183,49,0.15)]">
+                <Image
+                  src="/logo.png"
+                  alt="GM Opel Garage Logo"
+                  fill
+                  className="object-contain"
+                />
               </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-base font-black text-foreground">
+              <div className="flex flex-col leading-tight">
+                <span className="text-xl font-black text-foreground group-hover:text-brand transition-colors">
                   {siteConfig.name}
                 </span>
-                <span className="text-[10px] font-medium text-brand/70 tracking-wider uppercase">
+                <span className="text-xs font-semibold text-brand/60 tracking-widest uppercase">
                   {siteConfig.nameSecondary}
                 </span>
               </div>
@@ -156,8 +162,7 @@ export function Footer() {
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} {siteConfig.name}. Tüm hakları saklıdır.
           </p>
-          <p className="text-xs text-muted-foreground flex items-center gap-1">
-            <Zap className="h-3 w-3 text-brand" />
+          <p className="text-xs text-muted-foreground">
             {siteConfig.brands.join(" · ")} — Profesyonel oto elektronik çözümleri
           </p>
         </div>
