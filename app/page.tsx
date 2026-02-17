@@ -1,7 +1,9 @@
 import { HeroSection } from "@/components/sections/hero";
 import { ServicesSection } from "@/components/sections/services";
+import { GallerySection } from "@/components/sections/gallery";
 import { ProcessSection } from "@/components/sections/process";
 import { WhyUsSection } from "@/components/sections/why-us";
+import { VideoShowcaseSection } from "@/components/sections/video-showcase";
 import { CampaignSection } from "@/components/sections/campaign";
 import { TestimonialsSection } from "@/components/sections/testimonials";
 import { FAQSection } from "@/components/sections/faq";
@@ -21,9 +23,11 @@ export default function HomePage() {
 
       <HeroSection />
       <ServicesSection />
-      <CampaignSection />
+      <GallerySection />
       <ProcessSection />
       <WhyUsSection />
+      <VideoShowcaseSection />
+      <CampaignSection />
       <TestimonialsSection />
       <FAQSection />
       <ContactSection />

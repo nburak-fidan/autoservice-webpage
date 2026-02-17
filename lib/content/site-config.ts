@@ -19,10 +19,10 @@ export const SITE_CONFIG = {
   ],
   email: "info@gmopelgarage.com",
   address: {
-    street: "Sanayi Mahallesi, Oto Sanayi Sitesi No: 42",
-    district: "Bayrampaşa",
+    street: "Avrupa Yakası, Maltepe",
+    district: "Zeytinburnu",
     city: "İstanbul",
-    zip: "34030",
+    zip: "34010",
     country: "TR",
   },
   geo: {
@@ -31,7 +31,7 @@ export const SITE_CONFIG = {
   },
   hours: {
     weekdays: "08:30 – 18:30",
-    saturday: "09:00 – 15:00",
+    saturday: "08:30 – 17:00",
     sunday: "Kapalı",
   },
   social: {
@@ -40,6 +40,7 @@ export const SITE_CONFIG = {
     youtube: "https://youtube.com/@gmopelgarage.?si=kMwNKzgQvUG6hKVb",
     tiktok: "https://www.tiktok.com/@gm.opel.garage?_r=1&_t=ZS-93wOxxKVLX7",
     whatsapp: "https://wa.me/905393424246",
+    googleReviews: "https://maps.app.goo.gl/b4LCQKKeRA6WQ3GE9",
   },
   // Markalar
   brands: ["Opel", "Chevrolet", "Peugeot", "Citroen"],

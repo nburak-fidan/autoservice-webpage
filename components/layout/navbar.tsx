@@ -55,8 +55,9 @@ export function Navbar() {
             />
           </div>
           <div className="hidden sm:flex flex-col leading-tight">
-            <span className="font-black text-lg md:text-xl tracking-tight text-white group-hover:text-brand transition-colors">
-              {SITE_CONFIG.name}
+            <span className="font-black text-lg md:text-xl tracking-tight">
+              <span className="text-brand group-hover:text-brand-light transition-colors">GM Opel</span>{" "}
+              <span className="text-brand/70 group-hover:text-brand transition-colors">Garage</span>
             </span>
             <span className="text-[11px] font-semibold text-brand/60 tracking-widest uppercase">
               {SITE_CONFIG.nameSecondary}
