@@ -22,12 +22,12 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-4 mb-5 group">
-              <div className="relative h-16 w-16 transition-transform group-hover:scale-105 drop-shadow-[0_0_12px_rgba(245,183,49,0.15)]">
+              <div className="relative h-20 w-20 transition-transform group-hover:scale-105 drop-shadow-[0_0_12px_rgba(245,183,49,0.15)]">
                 <Image
                   src="/logo.png"
                   alt="GM Opel Garage Logo"
                   fill
-                  className="object-contain"
+                  className="object-contain rounded-lg"
                 />
               </div>
               <div className="flex flex-col leading-tight">
@@ -136,7 +136,6 @@ export function Footer() {
                   >
                     <Phone className="h-4 w-4 text-green-400" />
                     {wp.number}
-                    <span className="text-[10px] text-green-400/60">(WA)</span>
                   </a>
                 </li>
               ))}

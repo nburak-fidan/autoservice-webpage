@@ -42,24 +42,23 @@ export function Navbar() {
           : "bg-transparent"
       )}
     >
-      <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 md:h-22">
+      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 md:h-28">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3.5 group">
-          <div className="relative h-12 w-12 md:h-14 md:w-14 transition-transform group-hover:scale-105 drop-shadow-[0_0_8px_rgba(245,183,49,0.15)]">
+        <Link href="/" className="flex items-center gap-3 sm:gap-4 group">
+          <div className="relative h-14 w-14 sm:h-20 sm:w-20 md:h-24 md:w-24 transition-transform group-hover:scale-105 drop-shadow-[0_0_12px_rgba(245,183,49,0.2)]">
             <Image
               src="/logo.png"
               alt="GM Opel Garage Logo"
               fill
-              className="object-contain"
+              className="object-contain rounded-lg"
               priority
             />
           </div>
-          <div className="hidden sm:flex flex-col leading-tight">
-            <span className="font-black text-lg md:text-xl tracking-tight">
-              <span className="text-brand group-hover:text-brand-light transition-colors">GM Opel</span>{" "}
-              <span className="text-brand/70 group-hover:text-brand transition-colors">Garage</span>
+          <div className="flex flex-col leading-tight">
+            <span className="font-black text-base sm:text-xl md:text-2xl tracking-tight text-brand">
+              GM Opel Garage
             </span>
-            <span className="text-[11px] font-semibold text-brand/60 tracking-widest uppercase">
+            <span className="text-[9px] sm:text-[11px] font-semibold text-brand/60 tracking-widest uppercase">
               {SITE_CONFIG.nameSecondary}
             </span>
           </div>
@@ -116,48 +115,85 @@ export function Navbar() {
       {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="lg:hidden fixed inset-0 top-16 bg-black/98 backdrop-blur-xl z-40"
-          >
-            <div className="flex flex-col p-6 gap-1">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
+          <>
+            {/* Backdrop overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+              onClick={() => setMobileOpen(false)}
+            />
+            {/* Menu panel */}
+            <motion.div
+              initial={{ opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: "100%" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="lg:hidden fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-black border-l border-brand/20 z-50 shadow-2xl"
+            >
+              {/* Menu header */}
+              <div className="flex items-center justify-between p-4 border-b border-border">
+                <span className="text-lg font-bold text-brand">Menü</span>
+                <button
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-center h-10 w-10 rounded-full bg-white/5 hover:bg-brand/10 transition-colors"
+                  aria-label="Menüyü kapat"
                 >
-                  <Link
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="py-3 px-4 text-lg font-medium text-white hover:bg-brand/10 hover:text-brand rounded-lg transition-colors block"
+                  <X className="h-5 w-5 text-white" />
+                </button>
+              </div>
+
+              {/* Menu content */}
+              <div className="flex flex-col p-4 gap-1 overflow-y-auto h-[calc(100%-80px)]">
+                {navLinks.map((link, i) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
                   >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-              <div className="mt-6 flex flex-col gap-3 pt-6 border-t border-border">
-                <Button className="w-full bg-brand hover:bg-brand-light text-black font-semibold" asChild>
-                  <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}>
-                    <Phone className="mr-2 h-4 w-4" />
-                    {SITE_CONFIG.phone}
-                  </a>
-                </Button>
-                {SITE_CONFIG.whatsappNumbers.map((wp) => (
-                  <Button key={wp.raw} variant="outline" className="w-full border-green-500/30 text-green-400 hover:bg-green-500/10" asChild>
-                    <a href={`https://wa.me/${wp.raw}`} target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="mr-2 h-4 w-4" />
-                      {wp.number}
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="py-3.5 px-4 text-base font-medium text-white hover:bg-brand/10 hover:text-brand rounded-xl transition-colors block border border-transparent hover:border-brand/20"
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+
+                {/* CTA Buttons */}
+                <div className="mt-6 flex flex-col gap-3 pt-6 border-t border-border">
+                  <Button className="w-full h-12 bg-brand hover:bg-brand-light text-black font-semibold text-base" asChild>
+                    <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}>
+                      <Phone className="mr-2 h-5 w-5" />
+                      {SITE_CONFIG.phone}
                     </a>
                   </Button>
-                ))}
+                  {SITE_CONFIG.whatsappNumbers.map((wp) => (
+                    <Button key={wp.raw} variant="outline" className="w-full h-12 border-green-500/30 text-green-400 hover:bg-green-500/10 text-base" asChild>
+                      <a href={`https://wa.me/${wp.raw}`} target="_blank" rel="noopener noreferrer">
+                        <MessageCircle className="mr-2 h-5 w-5" />
+                        {wp.number}
+                      </a>
+                    </Button>
+                  ))}
+                </div>
+
+                {/* Yol Tarifi */}
+                <div className="mt-4">
+                  <Button className="w-full h-12 bg-white/5 hover:bg-white/10 text-white font-medium border border-white/10" asChild>
+                    <a href={`https://maps.google.com/?q=${SITE_CONFIG.geo.lat},${SITE_CONFIG.geo.lng}`} target="_blank" rel="noopener noreferrer">
+                      <MapPin className="mr-2 h-5 w-5 text-brand" />
+                      Yol Tarifi Al
+                    </a>
+                  </Button>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

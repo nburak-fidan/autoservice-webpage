@@ -13,56 +13,54 @@ const galleryItems = [
     alt: "ECU Motor Beyni Devre Kartı — Mikroçip ve Bileşenler",
     label: "ECU Devre Kartı",
     icon: Cpu,
-    span: "col-span-2 row-span-2",
   },
   {
     src: "/gallery/pcb-soldering.jpg",
     alt: "Devre Kartı Üzerinde Lehimleme İşlemi",
     label: "PCB Lehimleme",
     icon: Zap,
-    span: "col-span-1 row-span-1",
   },
   {
     src: "/gallery/obd-diagnostic.jpg",
     alt: "Araç Elektronik Arıza Tespiti OBD Cihazı",
     label: "Arıza Tespiti",
     icon: Wrench,
-    span: "col-span-1 row-span-1",
   },
   {
     src: "/gallery/soldering-macro.jpg",
     alt: "Elektronik Bileşen Lehim Detay Çalışması",
     label: "Elektronik Onarım",
     icon: Cpu,
-    span: "col-span-1 row-span-1",
   },
   {
     src: "/gallery/electronics-workshop.jpg",
     alt: "Profesyonel Elektronik Tamir Atölyesi",
     label: "Tamir Atölyesi",
     icon: Wrench,
-    span: "col-span-1 row-span-1",
   },
   {
     src: "/gallery/car-engine-wiring.jpg",
     alt: "Araç Motor Bölümü Kablo Tesisatı ve Sensörler",
     label: "Kablo & Sensör",
     icon: Zap,
-    span: "col-span-2 row-span-1",
   },
   {
     src: "/gallery/circuit-board-closeup.jpg",
     alt: "Devre Kartı Yakın Çekim — Elektronik Kontrol Ünitesi",
     label: "Devre Kartı Detay",
     icon: Cpu,
-    span: "col-span-1 row-span-1",
   },
   {
     src: "/gallery/car-mechanic-diagnostic.jpg",
     alt: "Profesyonel Araç Diagnostik ve Servis Alanı",
     label: "Diagnostik Servis",
     icon: Camera,
-    span: "col-span-1 row-span-1",
+  },
+  {
+    src: "/gallery/elektronik-onarim.jpg",
+    alt: "Elektronik Onarım ve Bakım Hizmeti",
+    label: "Elektronik Bakım",
+    icon: Zap,
   },
 ];
 
@@ -78,16 +76,15 @@ export function GallerySection() {
         subtitle="Profesyonel ekibimiz ve donanımlarımızla aracınızın elektronik sorunlarını çözüyoruz."
       />
 
-      {/* Masonry-style grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[180px] sm:auto-rows-[220px] md:auto-rows-[200px]">
+      {/* 3x3 Grid - Tüm fotoğraflar aynı boyutta */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
         {galleryItems.map((item, i) => (
           <ScrollReveal
             key={item.alt}
             delay={i * 0.08}
-            className={item.span}
           >
             <motion.div
-              className="group relative w-full h-full rounded-2xl overflow-hidden cursor-pointer"
+              className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4 }}
             >
@@ -96,7 +93,7 @@ export function GallerySection() {
                 alt={item.alt}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 50vw, 25vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
               />
 
               {/* Dark overlay */}

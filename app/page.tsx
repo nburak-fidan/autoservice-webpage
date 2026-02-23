@@ -1,5 +1,6 @@
 import { HeroSection } from "@/components/sections/hero";
 import { ServicesSection } from "@/components/sections/services";
+import { ChipTuningCalculator } from "@/components/sections/chip-tuning-calculator";
 import { GallerySection } from "@/components/sections/gallery";
 import { ProcessSection } from "@/components/sections/process";
 import { WhyUsSection } from "@/components/sections/why-us";
@@ -23,6 +24,7 @@ export default function HomePage() {
 
       <HeroSection />
       <ServicesSection />
+      <ChipTuningCalculator />
       <GallerySection />
       <ProcessSection />
       <WhyUsSection />
