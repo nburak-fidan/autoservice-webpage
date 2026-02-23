@@ -131,10 +131,10 @@ export function Navbar() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: "100%" }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="lg:hidden fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-black border-l border-brand/20 z-50 shadow-2xl"
+              className="lg:hidden fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-black border-l border-brand/20 z-50 shadow-2xl flex flex-col"
             >
               {/* Menu header */}
-              <div className="flex items-center justify-between p-4 border-b border-border">
+              <div className="flex-shrink-0 flex items-center justify-between p-4 border-b border-border">
                 <span className="text-lg font-bold text-brand">Menü</span>
                 <button
                   onClick={() => setMobileOpen(false)}
@@ -145,51 +145,53 @@ export function Navbar() {
                 </button>
               </div>
 
-              {/* Menu content */}
-              <div className="flex flex-col p-4 gap-1 overflow-y-auto h-[calc(100%-80px)]">
-                {navLinks.map((link, i) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="py-3.5 px-4 text-base font-medium text-white hover:bg-brand/10 hover:text-brand rounded-xl transition-colors block border border-transparent hover:border-brand/20"
+              {/* Menu content - Scrollable */}
+              <div className="flex-1 overflow-y-auto overscroll-contain p-4">
+                <div className="flex flex-col gap-1">
+                  {navLinks.map((link, i) => (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 }}
                     >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="py-3.5 px-4 text-base font-medium text-white hover:bg-brand/10 hover:text-brand rounded-xl transition-colors block border border-transparent hover:border-brand/20"
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  ))}
 
-                {/* CTA Buttons */}
-                <div className="mt-6 flex flex-col gap-3 pt-6 border-t border-border">
-                  <Button className="w-full h-12 bg-brand hover:bg-brand-light text-black font-semibold text-base" asChild>
-                    <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}>
-                      <Phone className="mr-2 h-5 w-5" />
-                      {SITE_CONFIG.phone}
-                    </a>
-                  </Button>
-                  {SITE_CONFIG.whatsappNumbers.map((wp) => (
-                    <Button key={wp.raw} variant="outline" className="w-full h-12 border-green-500/30 text-green-400 hover:bg-green-500/10 text-base" asChild>
-                      <a href={`https://wa.me/${wp.raw}`} target="_blank" rel="noopener noreferrer">
-                        <MessageCircle className="mr-2 h-5 w-5" />
-                        {wp.number}
+                  {/* CTA Buttons */}
+                  <div className="mt-6 flex flex-col gap-3 pt-6 border-t border-border">
+                    <Button className="w-full h-12 bg-brand hover:bg-brand-light text-black font-semibold text-base" asChild>
+                      <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}>
+                        <Phone className="mr-2 h-5 w-5" />
+                        {SITE_CONFIG.phone}
                       </a>
                     </Button>
-                  ))}
-                </div>
+                    {SITE_CONFIG.whatsappNumbers.map((wp) => (
+                      <Button key={wp.raw} variant="outline" className="w-full h-12 border-green-500/30 text-green-400 hover:bg-green-500/10 text-base" asChild>
+                        <a href={`https://wa.me/${wp.raw}`} target="_blank" rel="noopener noreferrer">
+                          <MessageCircle className="mr-2 h-5 w-5" />
+                          {wp.number}
+                        </a>
+                      </Button>
+                    ))}
+                  </div>
 
-                {/* Yol Tarifi */}
-                <div className="mt-4">
-                  <Button className="w-full h-12 bg-white/5 hover:bg-white/10 text-white font-medium border border-white/10" asChild>
-                    <a href={`https://maps.google.com/?q=${SITE_CONFIG.geo.lat},${SITE_CONFIG.geo.lng}`} target="_blank" rel="noopener noreferrer">
-                      <MapPin className="mr-2 h-5 w-5 text-brand" />
-                      Yol Tarifi Al
-                    </a>
-                  </Button>
+                  {/* Yol Tarifi */}
+                  <div className="mt-4 pb-8">
+                    <Button className="w-full h-12 bg-white/5 hover:bg-white/10 text-white font-medium border border-white/10" asChild>
+                      <a href={`https://maps.google.com/?q=${SITE_CONFIG.geo.lat},${SITE_CONFIG.geo.lng}`} target="_blank" rel="noopener noreferrer">
+                        <MapPin className="mr-2 h-5 w-5 text-brand" />
+                        Yol Tarifi Al
+                      </a>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </motion.div>
