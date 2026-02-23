@@ -45,12 +45,12 @@ export function Navbar() {
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 md:h-28">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 sm:gap-4 group">
-          <div className="relative h-14 w-14 sm:h-20 sm:w-20 md:h-24 md:w-24 transition-transform group-hover:scale-105 drop-shadow-[0_0_12px_rgba(245,183,49,0.2)]">
+          <div className="relative h-16 w-16 sm:h-24 sm:w-24 md:h-32 md:w-32 transition-transform group-hover:scale-105 drop-shadow-[0_0_12px_rgba(245,183,49,0.2)]">
             <Image
-              src="/logo.png"
+              src="/weblogo.svg"
               alt="GM Opel Garage Logo"
               fill
-              className="object-contain rounded-lg"
+              className="object-contain"
               priority
             />
           </div>

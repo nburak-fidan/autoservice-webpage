@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   ...defaultMetadata,
   icons: {
     icon: [
-      { url: '/logo.png', sizes: '32x32', type: 'image/png' },
-      { url: '/logo.png', sizes: '16x16', type: 'image/png' },
+      { url: '/weblogo.svg', sizes: '32x32', type: 'image/svg+xml' },
+      { url: '/weblogo.svg', sizes: '16x16', type: 'image/svg+xml' },
     ],
-    apple: '/logo.png',
+    apple: '/weblogo.svg',
   },
 };
 
