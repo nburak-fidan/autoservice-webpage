@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, CheckCircle2, Phone, MessageCircle } from "lucide-react";
 import { services, getServiceBySlug } from "@/lib/content/services";
 import { faults } from "@/lib/content/faults";
@@ -65,6 +66,19 @@ export default async function ServiceDetailPage({ params }: Props) {
           {/* Main content */}
           <div className="lg:col-span-2">
             <ScrollReveal>
+              {/* Hero image */}
+              {service.image && (
+                <div className="relative w-full h-56 sm:h-72 rounded-2xl overflow-hidden mb-6">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 66vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+              )}
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-brand mb-6">
                 <service.icon className="h-7 w-7" />
               </div>

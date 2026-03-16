@@ -63,6 +63,62 @@ export const faults: Fault[] = [
     ],
     relatedServiceSlug: "airbag-modulu-tamiri",
   },
+  {
+    slug: "arac-tesisat-arizasi",
+    title: "Araç Elektrik Tesisat Arızası",
+    description:
+      "Araç elektrik tesisatında kısa devre, kablo kopması, sigorta patlaması ve elektrik kesintisi sorunları.",
+    symptoms: [
+      "Aracın elektrik sistemi çalışmıyor",
+      "Sigortalar sürekli atıyor",
+      "Farlar veya iç aydınlatma yanmıyor",
+      "Akü hızlı boşalıyor",
+      "Kablo tesisatında erime kokusu",
+    ],
+    relatedServiceSlug: "tesisat-tamiri",
+  },
+  {
+    slug: "easytronic-robot-sanziman-arizasi",
+    title: "Easytronic Robot Şanzıman Arızası",
+    description:
+      "Opel Corsa, Meriva ve Zafira araçlarda Easytronic robotize şanzıman aktüatör ve yazılım arızaları.",
+    symptoms: [
+      "Vites geçmiyor veya takılıyor",
+      "F harfi veya şanzıman uyarısı yanıyor",
+      "Araç sarsarak vites değiştiriyor",
+      "Debriyaj sürtünmesi veya kayması",
+      "Düz yolda geri kayma hissi",
+    ],
+    relatedServiceSlug: "easytronic-robot-tamiri",
+  },
+  {
+    slug: "arac-ustu-diagnoz-arizasi",
+    title: "Araç Üstü Diagnoz & Arıza Tespiti",
+    description:
+      "Yerinde teşhis hizmeti ile aracınızın elektronik ve mekanik arızalarının hızlı tespiti.",
+    symptoms: [
+      "Motor kontrol lambası yanıyor",
+      "Araç performansı düştü",
+      "Nedeni bilinmeyen uyarı lambaları",
+      "Araç çalışmıyor veya durma problemi",
+      "Elektronik sistemlerde belirsiz arızalar",
+    ],
+    relatedServiceSlug: "arac-ustu-diagnoz",
+  },
+  {
+    slug: "online-yazilim-guncelleme-sorunlari",
+    title: "Online Yazılım & Güncelleme Sorunları",
+    description:
+      "ECU yazılım güncelleme gereklilikleri, yazılım kaynaklı performans düşüklüğü ve online çözümler.",
+    symptoms: [
+      "Araç performansı düşük",
+      "Yakıt tüketimi normalin üstünde",
+      "Motor rölantide dengesiz çalışıyor",
+      "Vites geçişlerinde sertlik",
+      "Fabrika güncellemesi gerekiyor uyarısı",
+    ],
+    relatedServiceSlug: "yazilim-online-cozumler",
+  },
 ];
 
 export function getFaultBySlug(slug: string): Fault | undefined {

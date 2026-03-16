@@ -130,7 +130,7 @@ const socialPlatforms = [
 
 export function VideoShowcaseSection() {
   return (
-    <SectionWrapper id="video-showcase" variant="muted" className="noise-overlay">
+    <SectionWrapper id="video-showcase" variant="muted">
       {/* Decorative */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/3 rounded-full blur-[150px]" />
       <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-brand/5 rounded-full blur-[100px]" />

@@ -51,7 +51,7 @@ const contactInfo: {
 
 export function ContactSection() {
   return (
-    <SectionWrapper id="contact" variant="muted" className="noise-overlay">
+    <SectionWrapper id="contact" variant="muted">
       {/* Decorative */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand/5 rounded-full blur-[100px]" />
@@ -126,7 +126,29 @@ export function ContactSection() {
               <Send className="h-5 w-5 text-brand" />
               Mesaj Gönderin
             </h3>
-            <form className="space-y-5">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const name = (form.elements.namedItem("name") as HTMLInputElement)?.value || "";
+                const phone = (form.elements.namedItem("phone") as HTMLInputElement)?.value || "";
+                const subject = (form.elements.namedItem("subject") as HTMLInputElement)?.value || "";
+                const message = (form.elements.namedItem("message") as HTMLTextAreaElement)?.value || "";
+                const whatsappText = encodeURIComponent(
+                  `Merhaba, web sitenizden yazıyorum.\n\n` +
+                  `Ad Soyad: ${name}\n` +
+                  `Telefon: ${phone}\n` +
+                  `Konu: ${subject}\n` +
+                  `Mesaj: ${message}`
+                );
+                window.open(
+                  `https://wa.me/905393424246?text=${whatsappText}`,
+                  "_blank",
+                  "noopener,noreferrer"
+                );
+              }}
+              className="space-y-5"
+            >
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-sm text-muted-foreground">Ad Soyad</Label>
@@ -164,10 +186,10 @@ export function ContactSection() {
               </div>
               <Button
                 type="submit"
-                className="w-full bg-brand text-black font-bold hover:bg-brand-light transition-all duration-300 hover:shadow-lg hover:shadow-brand/30 pulse-glow"
+                className="w-full bg-green-500 text-white font-bold hover:bg-green-600 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30"
               >
-                <Send className="h-4 w-4 mr-2" />
-                Gönder
+                <MessageCircle className="h-4 w-4 mr-2" />
+                WhatsApp ile Gönder
               </Button>
             </form>
           </div>

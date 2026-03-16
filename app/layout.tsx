@@ -31,6 +31,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
+      <head>
+        {/* Preconnect to external image CDNs for faster loading */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://img.youtube.com" />
+        <link rel="dns-prefetch" href="https://img.youtube.com" />
+        <meta name="theme-color" content="#0a0a0a" />
+        <meta name="color-scheme" content="dark" />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Navbar />
         <main>{children}</main>

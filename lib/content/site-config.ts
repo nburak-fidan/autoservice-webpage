@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   nameSecondary: "PSA Servis",
   tagline: "Opel Chevrolet Peugeot Citroen Elektrik & Elektronik Uzmanı",
   description:
-    "1998 yılından bu yana Opel, Chevrolet, Peugeot ve Citroen marka araçlara elektrik, elektronik, oto beyin tamiri, yedek parça ve mekanik servis hizmeti veren profesyonel ekip. Doğru ve hızlı teşhis ile 6 ay garantili onarım.",
+    "1998 yılından bu yana Opel, Chevrolet, Peugeot ve Citroen marka araçlara elektrik, elektronik, oto beyin tamiri, yazılım & dosya hizmeti, yedek parça ve mekanik servis hizmeti veren profesyonel ekip. Dr.Şair markası ile tüm araçlara chip tuning ve yazılım çözümleri. Doğru ve hızlı teşhis ile 6 ay garantili onarım.",
   url: "https://www.gmopelgarage.com",
   // İletişim hatları
   phone: "0212 482 07 90",         // Şirket hattı
@@ -31,7 +31,7 @@ export const SITE_CONFIG = {
   },
   hours: {
     weekdays: "08:30 – 18:30",
-    saturday: "08:30 – 17:00",
+    saturday: "09:00 – 15:00",
     sunday: "Kapalı",
   },
   social: {

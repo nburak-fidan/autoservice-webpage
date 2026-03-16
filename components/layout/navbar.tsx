@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "/", label: "Ana Sayfa" },
   { href: "/services", label: "Hizmetler" },
+  { href: "/chip-tuning", label: "Dr.Şair Yazılım" },
   { href: "/faults", label: "Arıza Rehberi" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "Hakkımızda" },
@@ -185,10 +186,139 @@ export function Navbar() {
             : "bg-transparent"
         )}
       >
-        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 md:h-28">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 sm:gap-4 group">
-            <div className="relative h-16 w-16 sm:h-24 sm:w-24 md:h-32 md:w-32 transition-transform group-hover:scale-105 drop-shadow-[0_0_12px_rgba(245,183,49,0.2)]">
+        {/* ═══════════════════════════════════════════════
+            DESKTOP NAVBAR — lg and above
+            Single row: [LOGO + BRAND] ... [NAV LINKS] ... [CTA ICONS]
+        ═══════════════════════════════════════════════ */}
+        <div className="hidden lg:block">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div
+              className={cn(
+                "flex items-center justify-between transition-all duration-500",
+                scrolled ? "h-20" : "h-28"
+              )}
+            >
+              {/* ── Logo + Brand ── */}
+              <Link href="/" className="flex items-center gap-4 group shrink-0">
+                <div
+                  className={cn(
+                    "relative shrink-0 transition-all duration-500 drop-shadow-[0_0_15px_rgba(245,183,49,0.15)] group-hover:drop-shadow-[0_0_20px_rgba(245,183,49,0.3)]",
+                    scrolled ? "h-14 w-14" : "h-20 w-20 xl:h-24 xl:w-24"
+                  )}
+                >
+                  <Image
+                    src="/weblogo.svg"
+                    alt="GM Opel Garage Logo"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+                <div className="flex flex-col justify-center">
+                  <span
+                    className={cn(
+                      "font-black tracking-tight text-brand uppercase leading-none transition-all duration-500",
+                      scrolled ? "text-lg" : "text-2xl xl:text-[1.7rem]"
+                    )}
+                  >
+                    GM OPEL GARAGE
+                  </span>
+                  <span
+                    className={cn(
+                      "font-bold text-brand/40 tracking-[0.3em] uppercase transition-all duration-500",
+                      scrolled ? "text-[9px] mt-0.5" : "text-[11px] mt-1.5"
+                    )}
+                  >
+                    PSA SERVİS
+                  </span>
+                </div>
+              </Link>
+
+              {/* ── Navigation links ── */}
+              <ul className="flex items-center gap-0.5">
+                {navLinks.map((link) => {
+                  const isActive =
+                    pathname === link.href ||
+                    (link.href !== "/" && pathname.startsWith(link.href));
+                  return (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className={cn(
+                          "relative px-3 xl:px-4 py-2 text-[13px] xl:text-sm font-medium transition-colors rounded-lg group whitespace-nowrap",
+                          isActive
+                            ? "text-brand"
+                            : "text-white/55 hover:text-white hover:bg-white/[0.04]"
+                        )}
+                      >
+                        {link.label}
+                        <span
+                          className={cn(
+                            "absolute bottom-0.5 left-1/2 -translate-x-1/2 h-[2px] bg-brand rounded-full transition-all duration-300",
+                            isActive ? "w-3/5" : "w-0 group-hover:w-3/5"
+                          )}
+                        />
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              {/* ── CTA icon group — compact pill ── */}
+              <div className="flex items-center gap-1 rounded-full bg-white/[0.04] border border-white/[0.08] p-1">
+                <a
+                  href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}
+                  aria-label="Bizi arayın"
+                  className="flex items-center justify-center h-9 w-9 rounded-full text-white/60 hover:text-brand hover:bg-brand/10 transition-all duration-200"
+                  title="Ara"
+                >
+                  <Phone className="h-4 w-4" />
+                </a>
+                <div className="w-px h-5 bg-white/[0.08]" />
+                <a
+                  href={SITE_CONFIG.social.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp ile yazın"
+                  className="flex items-center justify-center h-9 w-9 rounded-full text-white/60 hover:text-green-400 hover:bg-green-400/10 transition-all duration-200"
+                  title="WhatsApp"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                </a>
+                <div className="w-px h-5 bg-white/[0.08]" />
+                <a
+                  href={`https://maps.google.com/?q=${SITE_CONFIG.geo.lat},${SITE_CONFIG.geo.lng}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Yol tarifi al"
+                  className="flex items-center justify-center h-9 w-9 rounded-full text-black bg-brand hover:bg-brand-light transition-all duration-200"
+                  title="Yol Tarifi"
+                >
+                  <MapPin className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ═══════════════════════════════════════════════
+            MOBILE / TABLET NAVBAR — below lg
+            [LOGO + BRAND] ←→ [HAMBURGER]
+        ═══════════════════════════════════════════════ */}
+        <nav className="lg:hidden mx-auto flex items-center justify-between px-4 sm:px-6">
+          <Link
+            href="/"
+            className={cn(
+              "flex items-center gap-3 group transition-all duration-500",
+              scrolled ? "py-2.5" : "py-3.5 sm:py-4"
+            )}
+          >
+            <div
+              className={cn(
+                "relative shrink-0 transition-all duration-500 drop-shadow-[0_0_10px_rgba(245,183,49,0.15)]",
+                scrolled ? "h-10 w-10" : "h-14 w-14 sm:h-16 sm:w-16"
+              )}
+            >
               <Image
                 src="/weblogo.svg"
                 alt="GM Opel Garage Logo"
@@ -197,67 +327,29 @@ export function Navbar() {
                 priority
               />
             </div>
-            <div className="flex flex-col leading-tight">
-              <span className="font-black text-base sm:text-xl md:text-2xl tracking-tight text-brand">
-                GM Opel Garage
+            <div className="flex flex-col justify-center min-w-0">
+              <span
+                className={cn(
+                  "font-black tracking-tight text-brand uppercase leading-none whitespace-nowrap transition-all duration-500",
+                  scrolled ? "text-sm" : "text-base sm:text-lg"
+                )}
+              >
+                GM OPEL GARAGE
               </span>
-              <span className="text-[9px] sm:text-[11px] font-semibold text-brand/60 tracking-widest uppercase">
-                {SITE_CONFIG.nameSecondary}
+              <span
+                className={cn(
+                  "font-bold text-brand/40 tracking-[0.2em] uppercase transition-all duration-500",
+                  scrolled ? "text-[6px] mt-0" : "text-[7px] sm:text-[8px] mt-0.5"
+                )}
+              >
+                PSA SERVİS
               </span>
             </div>
           </Link>
 
-          {/* Desktop nav */}
-          <ul className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "relative px-3 py-2 text-sm font-medium transition-colors rounded-md group",
-                      isActive ? "text-brand" : "text-white/70 hover:text-brand"
-                    )}
-                  >
-                    {link.label}
-                    <span
-                      className={cn(
-                        "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-brand rounded-full transition-all duration-300",
-                        isActive ? "w-4/5" : "w-0 group-hover:w-4/5"
-                      )}
-                    />
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-
-          {/* Desktop CTAs */}
-          <div className="hidden lg:flex items-center gap-2">
-            <Button variant="ghost" size="sm" className="text-white/70 hover:text-brand hover:bg-brand/10" asChild>
-              <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`} aria-label="Bizi arayın">
-                <Phone className="mr-1.5 h-4 w-4" />
-                Ara
-              </a>
-            </Button>
-            <Button variant="ghost" size="sm" className="text-white/70 hover:text-green-400 hover:bg-green-400/10" asChild>
-              <a href={SITE_CONFIG.social.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile yazın">
-                <MessageCircle className="mr-1.5 h-4 w-4" />
-                WhatsApp
-              </a>
-            </Button>
-            <Button size="sm" className="bg-brand hover:bg-brand-light text-black font-semibold" asChild>
-              <a href={`https://maps.google.com/?q=${SITE_CONFIG.geo.lat},${SITE_CONFIG.geo.lng}`} target="_blank" rel="noopener noreferrer" aria-label="Yol tarifi al">
-                <MapPin className="mr-1.5 h-4 w-4" />
-                Yol Tarifi
-              </a>
-            </Button>
-          </div>
-
-          {/* Mobile hamburger — always accessible, z-[60] above header */}
+          {/* Hamburger */}
           <button
-            className="lg:hidden relative z-[60] flex items-center justify-center h-10 w-10 rounded-md text-white hover:bg-brand/10 active:scale-95 transition-all"
+            className="relative z-[60] flex items-center justify-center h-11 w-11 rounded-xl text-white hover:bg-brand/10 active:scale-95 transition-all shrink-0"
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? "Menüyü kapat" : "Menüyü aç"}
             aria-expanded={mobileOpen}
@@ -271,7 +363,7 @@ export function Navbar() {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.15 }}
                 >
-                  <X className="h-5 w-5" />
+                  <X className="h-6 w-6" />
                 </motion.span>
               ) : (
                 <motion.span
@@ -281,7 +373,7 @@ export function Navbar() {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.15 }}
                 >
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-6 w-6" />
                 </motion.span>
               )}
             </AnimatePresence>
@@ -289,7 +381,7 @@ export function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile menu — rendered via portal to document.body, completely outside header */}
+      {/* Mobile menu — rendered via portal to document.body */}
       <MobileMenu isOpen={mobileOpen} onClose={closeMobile} pathname={pathname} />
     </>
   );

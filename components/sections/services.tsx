@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Cpu, Zap, Wrench, Cog } from "lucide-react";
+import { ArrowRight, Cpu, Zap, Wrench, Cog, Code, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -29,6 +29,16 @@ const serviceCards = [
     title: "Elektrik & Bakım",
     description: "Komple araç elektrik tesisatı ve periyodik bakım hizmetleri.",
   },
+  {
+    icon: Code,
+    title: "Yazılım & Dosya Hizmeti",
+    description: "ECU yazılım güncelleme, dosya okuma/yazma, orijinal ve modifiye dosya hizmeti.",
+  },
+  {
+    icon: Globe,
+    title: "Yazılım & Online Çözümler",
+    description: "Uzaktan yazılım desteği, online dosya çözümleri ve anlık teknik destek hizmeti.",
+  },
 ];
 
 export function ServicesSection() {
@@ -43,7 +53,7 @@ export function ServicesSection() {
         subtitle={`${SITE_CONFIG.brands.join(", ")} araçlarınız için kapsamlı elektronik ve mekanik çözümler.`}
       />
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {serviceCards.map((service, i) => (
           <ScrollReveal key={service.title} delay={i * 0.1}>
             <div className="group relative flex flex-col rounded-2xl border border-border bg-card p-7 transition-all duration-500 hover:border-brand/50 card-hover-tilt hover:shadow-2xl hover:shadow-brand/15 h-full overflow-hidden">

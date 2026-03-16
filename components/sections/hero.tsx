@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, ShieldCheck, Clock, Award, ChevronDown, Zap } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/content/site-config";
@@ -82,13 +83,19 @@ export function HeroSection() {
     >
       {/* ── Parallax background ── */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2083&auto=format&fit=crop')",
-          y: bgY,
-        }}
-      />
+        className="absolute inset-0 scale-110"
+        style={{ y: bgY }}
+      >
+        <Image
+          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920&auto=format&fit=crop"
+          alt="Arkaplan"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+          quality={75}
+        />
+      </motion.div>
 
       {/* ── Overlays ── */}
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/40" />
@@ -102,33 +109,13 @@ export function HeroSection() {
       <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand to-transparent opacity-80" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand/30 to-transparent" />
 
-      {/* Floating particles */}
-      {[...Array(4)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 bg-brand/30 rounded-full"
-          style={{ left: `${20 + i * 20}%`, top: `${25 + i * 15}%` }}
-          animate={{
-            y: [-15, -50, -15],
-            opacity: [0.15, 0.5, 0.15],
-            scale: [1, 1.8, 1],
-          }}
-          transition={{
-            duration: 5 + i,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: i * 1.2,
-          }}
-        />
-      ))}
-
       {/* Decorative glow */}
       <div className="absolute top-1/3 -left-20 w-[400px] h-[400px] bg-brand/6 rounded-full blur-[150px]" />
 
       {/* ── Main content ── */}
       <motion.div
         style={{ opacity: contentOpacity }}
-        className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full pt-32 pb-24 md:pt-40 md:pb-32"
+        className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full pt-28 pb-24 md:pt-36 lg:pt-40 md:pb-32"
       >
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-center">
           {/* ── Left column (3/5) ── */}
@@ -145,21 +132,39 @@ export function HeroSection() {
               </span>
             </motion.div>
 
-            {/* Headline */}
-            <motion.h1
-              className="mt-7 text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl !leading-[1.08]"
+            {/* Headline — GM OPEL GARAGE büyük ve eşit boyutlu */}
+            <motion.div
+              className="mt-7"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-white">{SITE_CONFIG.name}</span>
-              <br />
-              <span className="text-gradient-gold">{SITE_CONFIG.nameSecondary}</span>
-            </motion.h1>
+              <h1 className="sr-only">GM Opel Garage - PSA Servis</h1>
+              <div className="flex flex-col gap-0">
+                <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 flex-wrap">
+                  <span className="text-[clamp(2.8rem,8vw,6rem)] font-black tracking-tighter text-brand leading-none uppercase" style={{ fontStretch: "condensed" }}>
+                    GM
+                  </span>
+                  <span className="text-[clamp(2.8rem,8vw,6rem)] font-black tracking-tighter text-white leading-none uppercase" style={{ fontStretch: "condensed" }}>
+                    OPEL
+                  </span>
+                  <span className="text-[clamp(2.8rem,8vw,6rem)] font-black tracking-tighter text-gradient-gold leading-none uppercase" style={{ fontStretch: "condensed" }}>
+                    GARAGE
+                  </span>
+                </div>
+                <div className="mt-2 flex items-center gap-3">
+                  <div className="h-[2px] flex-1 bg-gradient-to-r from-brand to-transparent" />
+                  <span className="text-sm sm:text-base font-bold text-brand/70 uppercase tracking-[0.3em]">
+                    {SITE_CONFIG.nameSecondary}
+                  </span>
+                  <div className="h-[2px] flex-1 bg-gradient-to-l from-brand to-transparent" />
+                </div>
+              </div>
+            </motion.div>
 
             {/* Brand list */}
             <motion.p
-              className="mt-3 text-base sm:text-lg font-medium text-white/40 tracking-wide"
+              className="mt-4 text-base sm:text-lg font-medium text-white/40 tracking-wide"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -167,14 +172,14 @@ export function HeroSection() {
               {SITE_CONFIG.brands.join(" • ")}
             </motion.p>
 
-            {/* Subheadline */}
+            {/* Subheadline — "yazılım ve dosya hizmeti" eklendi */}
             <motion.p
               className="mt-5 text-base sm:text-lg text-white/55 leading-relaxed max-w-xl"
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
             >
-              {SITE_CONFIG.foundedYear} yılından bu yana Opel, Chevrolet, Peugeot ve Citroen araçlara elektrik, elektronik, oto beyin tamiri ve mekanik servis hizmeti.{" "}
+              {SITE_CONFIG.foundedYear} yılından bu yana Opel, Chevrolet, Peugeot ve Citroen araçlara elektrik, elektronik, oto beyin tamiri, <strong className="text-brand/80 font-semibold">yazılım &amp; dosya hizmeti</strong> ve mekanik servis hizmeti.{" "}
               <strong className="text-brand font-semibold">{SITE_CONFIG.warranty} garantili</strong>{" "}
               profesyonel onarım.
             </motion.p>

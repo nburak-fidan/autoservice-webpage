@@ -35,7 +35,7 @@ function GoogleLogo({ className = "h-5 w-5" }: { className?: string }) {
 
 export function TestimonialsSection() {
   return (
-    <SectionWrapper id="testimonials" variant="muted" className="noise-overlay">
+    <SectionWrapper id="testimonials" variant="muted">
       {/* Decorative */}
       <div className="absolute top-1/3 left-0 w-72 h-72 bg-brand/5 rounded-full blur-[100px]" />
 

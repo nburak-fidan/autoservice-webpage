@@ -50,7 +50,7 @@ export function CampaignSection() {
   const primaryWA = siteConfig.whatsappNumbers[0].raw;
 
   return (
-    <SectionWrapper id="campaigns" className="noise-overlay">
+    <SectionWrapper id="campaigns">
       {/* Decorative blurs */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand/8 rounded-full blur-[150px]" />
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-brand/5 rounded-full blur-[120px]" />

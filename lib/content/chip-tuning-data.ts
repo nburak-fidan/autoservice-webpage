@@ -1362,6 +1362,546 @@ export const chipTuningData: CarBrand[] = [
       },
     ],
   },
+  // ── Volkswagen ──
+  {
+    name: "Volkswagen",
+    models: [
+      {
+        name: "Golf 7",
+        years: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        engines: [
+          { name: "1.6 TDI", displacement: "1598cc", fuelType: "Dizel", originalHP: 105, originalTorque: 250, stage1HP: 140, stage1Torque: 320, stage2HP: 155, stage2Torque: 350 },
+          { name: "1.6 TDI", displacement: "1598cc", fuelType: "Dizel", originalHP: 90, originalTorque: 230, stage1HP: 130, stage1Torque: 300, stage2HP: 145, stage2Torque: 330 },
+          { name: "2.0 TDI", displacement: "1968cc", fuelType: "Dizel", originalHP: 150, originalTorque: 340, stage1HP: 190, stage1Torque: 420, stage2HP: 210, stage2Torque: 460, stage3HP: 240, stage3Torque: 500 },
+          { name: "1.4 TSI", displacement: "1395cc", fuelType: "Benzin", originalHP: 125, originalTorque: 200, stage1HP: 155, stage1Torque: 260, stage2HP: 175, stage2Torque: 290 },
+          { name: "1.4 TSI", displacement: "1395cc", fuelType: "Benzin", originalHP: 150, originalTorque: 250, stage1HP: 180, stage1Torque: 310, stage2HP: 200, stage2Torque: 340 },
+          { name: "2.0 TSI GTI", displacement: "1984cc", fuelType: "Benzin", originalHP: 220, originalTorque: 350, stage1HP: 280, stage1Torque: 430, stage2HP: 310, stage2Torque: 470, stage3HP: 360, stage3Torque: 500 },
+        ],
+      },
+      {
+        name: "Passat B8",
+        years: ["2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        engines: [
+          { name: "1.6 TDI", displacement: "1598cc", fuelType: "Dizel", originalHP: 120, originalTorque: 250, stage1HP: 155, stage1Torque: 330, stage2HP: 170, stage2Torque: 360 },
+          { name: "2.0 TDI", displacement: "1968cc", fuelType: "Dizel", originalHP: 150, originalTorque: 340, stage1HP: 190, stage1Torque: 420, stage2HP: 210, stage2Torque: 460 },
+          { name: "2.0 TDI", displacement: "1968cc", fuelType: "Dizel", originalHP: 190, originalTorque: 400, stage1HP: 230, stage1Torque: 470, stage2HP: 255, stage2Torque: 510 },
+          { name: "1.4 TSI", displacement: "1395cc", fuelType: "Benzin", originalHP: 150, originalTorque: 250, stage1HP: 185, stage1Torque: 310, stage2HP: 205, stage2Torque: 340 },
+          { name: "2.0 TSI", displacement: "1984cc", fuelType: "Benzin", originalHP: 220, originalTorque: 350, stage1HP: 270, stage1Torque: 430, stage2HP: 300, stage2Torque: 470 },
+        ],
+      },
+      {
+        name: "Polo 6R/6C",
+        years: ["2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017"],
+        engines: [
+          { name: "1.4 TDI", displacement: "1422cc", fuelType: "Dizel", originalHP: 75, originalTorque: 195, stage1HP: 105, stage1Torque: 250 },
+          { name: "1.6 TDI", displacement: "1598cc", fuelType: "Dizel", originalHP: 90, originalTorque: 230, stage1HP: 130, stage1Torque: 300 },
+          { name: "1.2 TSI", displacement: "1197cc", fuelType: "Benzin", originalHP: 90, originalTorque: 160, stage1HP: 115, stage1Torque: 210 },
+          { name: "1.4 TSI", displacement: "1395cc", fuelType: "Benzin", originalHP: 150, originalTorque: 250, stage1HP: 180, stage1Torque: 310, stage2HP: 200, stage2Torque: 340 },
+          { name: "1.8 TSI GTI", displacement: "1798cc", fuelType: "Benzin", originalHP: 192, originalTorque: 320, stage1HP: 230, stage1Torque: 390, stage2HP: 260, stage2Torque: 420 },
+        ],
+      },
+      {
+        name: "Tiguan",
+        years: ["2016", "2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.6 TDI", displacement: "1598cc", fuelType: "Dizel", originalHP: 115, originalTorque: 250, stage1HP: 145, stage1Torque: 320 },
+          { name: "2.0 TDI", displacement: "1968cc", fuelType: "Dizel", originalHP: 150, originalTorque: 340, stage1HP: 190, stage1Torque: 420, stage2HP: 210, stage2Torque: 460 },
+          { name: "2.0 TDI", displacement: "1968cc", fuelType: "Dizel", originalHP: 190, originalTorque: 400, stage1HP: 230, stage1Torque: 470, stage2HP: 255, stage2Torque: 510 },
+          { name: "1.4 TSI", displacement: "1395cc", fuelType: "Benzin", originalHP: 150, originalTorque: 250, stage1HP: 185, stage1Torque: 310 },
+          { name: "2.0 TSI", displacement: "1984cc", fuelType: "Benzin", originalHP: 220, originalTorque: 350, stage1HP: 270, stage1Torque: 430, stage2HP: 300, stage2Torque: 470 },
+        ],
+      },
+    ],
+  },
+  // ── BMW ──
+  {
+    name: "BMW",
+    models: [
+      {
+        name: "3 Serisi (F30)",
+        years: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
+        engines: [
+          { name: "316d", displacement: "1995cc", fuelType: "Dizel", originalHP: 116, originalTorque: 270, stage1HP: 150, stage1Torque: 340 },
+          { name: "318d", displacement: "1995cc", fuelType: "Dizel", originalHP: 150, originalTorque: 320, stage1HP: 190, stage1Torque: 400, stage2HP: 210, stage2Torque: 440 },
+          { name: "320d", displacement: "1995cc", fuelType: "Dizel", originalHP: 190, originalTorque: 400, stage1HP: 230, stage1Torque: 470, stage2HP: 250, stage2Torque: 510 },
+          { name: "320i", displacement: "1998cc", fuelType: "Benzin", originalHP: 184, originalTorque: 270, stage1HP: 220, stage1Torque: 340, stage2HP: 250, stage2Torque: 380 },
+          { name: "330i", displacement: "1998cc", fuelType: "Benzin", originalHP: 252, originalTorque: 350, stage1HP: 300, stage1Torque: 430, stage2HP: 330, stage2Torque: 470 },
+          { name: "340i", displacement: "2998cc", fuelType: "Benzin", originalHP: 326, originalTorque: 450, stage1HP: 380, stage1Torque: 540, stage2HP: 420, stage2Torque: 580 },
+        ],
+      },
+      {
+        name: "5 Serisi (G30)",
+        years: ["2017", "2018", "2019", "2020", "2021", "2022", "2023"],
+        engines: [
+          { name: "520d", displacement: "1995cc", fuelType: "Dizel", originalHP: 190, originalTorque: 400, stage1HP: 230, stage1Torque: 470, stage2HP: 250, stage2Torque: 510 },
+          { name: "530d", displacement: "2993cc", fuelType: "Dizel", originalHP: 265, originalTorque: 620, stage1HP: 310, stage1Torque: 700, stage2HP: 340, stage2Torque: 750 },
+          { name: "530i", displacement: "1998cc", fuelType: "Benzin", originalHP: 252, originalTorque: 350, stage1HP: 300, stage1Torque: 430, stage2HP: 330, stage2Torque: 470 },
+          { name: "540i", displacement: "2998cc", fuelType: "Benzin", originalHP: 340, originalTorque: 450, stage1HP: 390, stage1Torque: 540, stage2HP: 420, stage2Torque: 580 },
+        ],
+      },
+      {
+        name: "1 Serisi (F20)",
+        years: ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
+        engines: [
+          { name: "116d", displacement: "1496cc", fuelType: "Dizel", originalHP: 116, originalTorque: 270, stage1HP: 150, stage1Torque: 340 },
+          { name: "118d", displacement: "1995cc", fuelType: "Dizel", originalHP: 150, originalTorque: 320, stage1HP: 190, stage1Torque: 400 },
+          { name: "120d", displacement: "1995cc", fuelType: "Dizel", originalHP: 190, originalTorque: 400, stage1HP: 230, stage1Torque: 470, stage2HP: 250, stage2Torque: 510 },
+          { name: "118i", displacement: "1499cc", fuelType: "Benzin", originalHP: 136, originalTorque: 220, stage1HP: 170, stage1Torque: 280 },
+          { name: "M140i", displacement: "2998cc", fuelType: "Benzin", originalHP: 340, originalTorque: 500, stage1HP: 390, stage1Torque: 580, stage2HP: 420, stage2Torque: 620 },
+        ],
+      },
+    ],
+  },
+  // ── Mercedes-Benz ──
+  {
+    name: "Mercedes",
+    models: [
+      {
+        name: "C Serisi (W205)",
+        years: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "C 180", displacement: "1595cc", fuelType: "Benzin", originalHP: 156, originalTorque: 250, stage1HP: 190, stage1Torque: 310 },
+          { name: "C 200", displacement: "1991cc", fuelType: "Benzin", originalHP: 184, originalTorque: 300, stage1HP: 220, stage1Torque: 370, stage2HP: 245, stage2Torque: 400 },
+          { name: "C 300", displacement: "1991cc", fuelType: "Benzin", originalHP: 258, originalTorque: 370, stage1HP: 300, stage1Torque: 440, stage2HP: 330, stage2Torque: 480 },
+          { name: "C 200d", displacement: "1950cc", fuelType: "Dizel", originalHP: 160, originalTorque: 360, stage1HP: 200, stage1Torque: 430, stage2HP: 220, stage2Torque: 470 },
+          { name: "C 220d", displacement: "2143cc", fuelType: "Dizel", originalHP: 170, originalTorque: 400, stage1HP: 210, stage1Torque: 470, stage2HP: 230, stage2Torque: 510 },
+        ],
+      },
+      {
+        name: "E Serisi (W213)",
+        years: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+        engines: [
+          { name: "E 200", displacement: "1991cc", fuelType: "Benzin", originalHP: 184, originalTorque: 300, stage1HP: 220, stage1Torque: 370, stage2HP: 245, stage2Torque: 400 },
+          { name: "E 300", displacement: "1991cc", fuelType: "Benzin", originalHP: 245, originalTorque: 370, stage1HP: 290, stage1Torque: 440 },
+          { name: "E 220d", displacement: "1950cc", fuelType: "Dizel", originalHP: 194, originalTorque: 400, stage1HP: 235, stage1Torque: 480, stage2HP: 260, stage2Torque: 520 },
+          { name: "E 350d", displacement: "2987cc", fuelType: "Dizel", originalHP: 258, originalTorque: 620, stage1HP: 300, stage1Torque: 700, stage2HP: 330, stage2Torque: 750 },
+        ],
+      },
+      {
+        name: "A Serisi (W177)",
+        years: ["2018", "2019", "2020", "2021", "2022", "2023"],
+        engines: [
+          { name: "A 180", displacement: "1332cc", fuelType: "Benzin", originalHP: 136, originalTorque: 200, stage1HP: 170, stage1Torque: 260 },
+          { name: "A 200", displacement: "1332cc", fuelType: "Benzin", originalHP: 163, originalTorque: 250, stage1HP: 200, stage1Torque: 310 },
+          { name: "A 180d", displacement: "1461cc", fuelType: "Dizel", originalHP: 116, originalTorque: 260, stage1HP: 150, stage1Torque: 320 },
+          { name: "A 200d", displacement: "1950cc", fuelType: "Dizel", originalHP: 150, originalTorque: 320, stage1HP: 190, stage1Torque: 400 },
+          { name: "A 35 AMG", displacement: "1991cc", fuelType: "Benzin", originalHP: 306, originalTorque: 400, stage1HP: 360, stage1Torque: 480, stage2HP: 400, stage2Torque: 520 },
+        ],
+      },
+    ],
+  },
+  // ── Audi ──
+  {
+    name: "Audi",
+    models: [
+      {
+        name: "A3 (8V)",
+        years: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        engines: [
+          { name: "1.6 TDI", displacement: "1598cc", fuelType: "Dizel", originalHP: 105, originalTorque: 250, stage1HP: 140, stage1Torque: 320 },
+          { name: "2.0 TDI", displacement: "1968cc", fuelType: "Dizel", originalHP: 150, originalTorque: 340, stage1HP: 190, stage1Torque: 420, stage2HP: 210, stage2Torque: 460 },
+          { name: "1.4 TFSI", displacement: "1395cc", fuelType: "Benzin", originalHP: 125, originalTorque: 200, stage1HP: 155, stage1Torque: 260 },
+          { name: "1.4 TFSI", displacement: "1395cc", fuelType: "Benzin", originalHP: 150, originalTorque: 250, stage1HP: 185, stage1Torque: 310, stage2HP: 200, stage2Torque: 340 },
+          { name: "2.0 TFSI", displacement: "1984cc", fuelType: "Benzin", originalHP: 190, originalTorque: 320, stage1HP: 240, stage1Torque: 400, stage2HP: 270, stage2Torque: 440 },
+          { name: "S3 2.0 TFSI", displacement: "1984cc", fuelType: "Benzin", originalHP: 300, originalTorque: 380, stage1HP: 360, stage1Torque: 460, stage2HP: 400, stage2Torque: 500 },
+        ],
+      },
+      {
+        name: "A4 (B9)",
+        years: ["2015", "2016", "2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "2.0 TDI", displacement: "1968cc", fuelType: "Dizel", originalHP: 150, originalTorque: 320, stage1HP: 190, stage1Torque: 400, stage2HP: 210, stage2Torque: 440 },
+          { name: "2.0 TDI", displacement: "1968cc", fuelType: "Dizel", originalHP: 190, originalTorque: 400, stage1HP: 230, stage1Torque: 470, stage2HP: 255, stage2Torque: 510 },
+          { name: "2.0 TFSI", displacement: "1984cc", fuelType: "Benzin", originalHP: 190, originalTorque: 320, stage1HP: 240, stage1Torque: 400, stage2HP: 270, stage2Torque: 440 },
+          { name: "2.0 TFSI", displacement: "1984cc", fuelType: "Benzin", originalHP: 252, originalTorque: 370, stage1HP: 300, stage1Torque: 440, stage2HP: 330, stage2Torque: 480 },
+        ],
+      },
+    ],
+  },
+  // ── Ford ──
+  {
+    name: "Ford",
+    models: [
+      {
+        name: "Focus 3",
+        years: ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"],
+        engines: [
+          { name: "1.5 TDCi", displacement: "1499cc", fuelType: "Dizel", originalHP: 95, originalTorque: 215, stage1HP: 125, stage1Torque: 280 },
+          { name: "1.5 TDCi", displacement: "1499cc", fuelType: "Dizel", originalHP: 120, originalTorque: 270, stage1HP: 155, stage1Torque: 340, stage2HP: 170, stage2Torque: 370 },
+          { name: "1.6 TDCi", displacement: "1560cc", fuelType: "Dizel", originalHP: 115, originalTorque: 270, stage1HP: 145, stage1Torque: 340 },
+          { name: "1.0 EcoBoost", displacement: "999cc", fuelType: "Benzin", originalHP: 100, originalTorque: 170, stage1HP: 130, stage1Torque: 220 },
+          { name: "1.0 EcoBoost", displacement: "999cc", fuelType: "Benzin", originalHP: 125, originalTorque: 200, stage1HP: 155, stage1Torque: 260, stage2HP: 170, stage2Torque: 280 },
+          { name: "1.5 EcoBoost", displacement: "1499cc", fuelType: "Benzin", originalHP: 150, originalTorque: 240, stage1HP: 185, stage1Torque: 300, stage2HP: 200, stage2Torque: 330 },
+          { name: "2.0 EcoBoost ST", displacement: "1999cc", fuelType: "Benzin", originalHP: 250, originalTorque: 360, stage1HP: 300, stage1Torque: 430, stage2HP: 330, stage2Torque: 470 },
+        ],
+      },
+      {
+        name: "Fiesta",
+        years: ["2013", "2014", "2015", "2016", "2017", "2018", "2019"],
+        engines: [
+          { name: "1.5 TDCi", displacement: "1499cc", fuelType: "Dizel", originalHP: 75, originalTorque: 185, stage1HP: 105, stage1Torque: 240 },
+          { name: "1.0 EcoBoost", displacement: "999cc", fuelType: "Benzin", originalHP: 100, originalTorque: 170, stage1HP: 130, stage1Torque: 220 },
+          { name: "1.0 EcoBoost", displacement: "999cc", fuelType: "Benzin", originalHP: 125, originalTorque: 200, stage1HP: 155, stage1Torque: 260 },
+          { name: "1.0 EcoBoost", displacement: "999cc", fuelType: "Benzin", originalHP: 140, originalTorque: 220, stage1HP: 170, stage1Torque: 280 },
+          { name: "1.5 EcoBoost ST", displacement: "1497cc", fuelType: "Benzin", originalHP: 200, originalTorque: 290, stage1HP: 235, stage1Torque: 350, stage2HP: 260, stage2Torque: 380 },
+        ],
+      },
+      {
+        name: "Kuga",
+        years: ["2013", "2014", "2015", "2016", "2017", "2018", "2019"],
+        engines: [
+          { name: "1.5 TDCi", displacement: "1499cc", fuelType: "Dizel", originalHP: 120, originalTorque: 270, stage1HP: 155, stage1Torque: 340, stage2HP: 170, stage2Torque: 370 },
+          { name: "2.0 TDCi", displacement: "1997cc", fuelType: "Dizel", originalHP: 150, originalTorque: 370, stage1HP: 190, stage1Torque: 440, stage2HP: 210, stage2Torque: 470 },
+          { name: "1.5 EcoBoost", displacement: "1499cc", fuelType: "Benzin", originalHP: 150, originalTorque: 240, stage1HP: 185, stage1Torque: 300, stage2HP: 200, stage2Torque: 330 },
+          { name: "1.5 EcoBoost", displacement: "1499cc", fuelType: "Benzin", originalHP: 182, originalTorque: 240, stage1HP: 210, stage1Torque: 310, stage2HP: 230, stage2Torque: 340 },
+        ],
+      },
+    ],
+  },
+  // ── Renault ──
+  {
+    name: "Renault",
+    models: [
+      {
+        name: "Megane 4",
+        years: ["2015", "2016", "2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.5 dCi", displacement: "1461cc", fuelType: "Dizel", originalHP: 90, originalTorque: 220, stage1HP: 120, stage1Torque: 280 },
+          { name: "1.5 dCi", displacement: "1461cc", fuelType: "Dizel", originalHP: 110, originalTorque: 260, stage1HP: 140, stage1Torque: 330, stage2HP: 155, stage2Torque: 360 },
+          { name: "1.6 dCi", displacement: "1598cc", fuelType: "Dizel", originalHP: 130, originalTorque: 320, stage1HP: 165, stage1Torque: 390, stage2HP: 185, stage2Torque: 420 },
+          { name: "1.2 TCe", displacement: "1197cc", fuelType: "Benzin", originalHP: 130, originalTorque: 205, stage1HP: 160, stage1Torque: 260 },
+          { name: "1.3 TCe", displacement: "1332cc", fuelType: "Benzin", originalHP: 140, originalTorque: 240, stage1HP: 170, stage1Torque: 300 },
+          { name: "1.8 TCe RS", displacement: "1798cc", fuelType: "Benzin", originalHP: 280, originalTorque: 390, stage1HP: 320, stage1Torque: 450, stage2HP: 350, stage2Torque: 490 },
+        ],
+      },
+      {
+        name: "Clio 4",
+        years: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
+        engines: [
+          { name: "1.5 dCi", displacement: "1461cc", fuelType: "Dizel", originalHP: 75, originalTorque: 200, stage1HP: 105, stage1Torque: 260 },
+          { name: "1.5 dCi", displacement: "1461cc", fuelType: "Dizel", originalHP: 90, originalTorque: 220, stage1HP: 120, stage1Torque: 280 },
+          { name: "0.9 TCe", displacement: "898cc", fuelType: "Benzin", originalHP: 90, originalTorque: 135, stage1HP: 110, stage1Torque: 175 },
+          { name: "1.2 TCe", displacement: "1197cc", fuelType: "Benzin", originalHP: 120, originalTorque: 190, stage1HP: 145, stage1Torque: 240 },
+          { name: "1.6 RS", displacement: "1618cc", fuelType: "Benzin", originalHP: 200, originalTorque: 240, stage1HP: 225, stage1Torque: 280, stage2HP: 245, stage2Torque: 300 },
+        ],
+      },
+    ],
+  },
+  // ── Peugeot ──
+  {
+    name: "Peugeot",
+    models: [
+      {
+        name: "308",
+        years: ["2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.6 BlueHDi", displacement: "1560cc", fuelType: "Dizel", originalHP: 100, originalTorque: 254, stage1HP: 135, stage1Torque: 320, stage2HP: 150, stage2Torque: 350 },
+          { name: "1.6 BlueHDi", displacement: "1560cc", fuelType: "Dizel", originalHP: 120, originalTorque: 300, stage1HP: 155, stage1Torque: 370, stage2HP: 170, stage2Torque: 400 },
+          { name: "2.0 BlueHDi", displacement: "1997cc", fuelType: "Dizel", originalHP: 150, originalTorque: 370, stage1HP: 190, stage1Torque: 440, stage2HP: 210, stage2Torque: 470 },
+          { name: "1.2 PureTech", displacement: "1199cc", fuelType: "Benzin", originalHP: 110, originalTorque: 205, stage1HP: 140, stage1Torque: 260 },
+          { name: "1.2 PureTech", displacement: "1199cc", fuelType: "Benzin", originalHP: 130, originalTorque: 230, stage1HP: 160, stage1Torque: 290 },
+          { name: "1.6 THP GTI", displacement: "1598cc", fuelType: "Benzin", originalHP: 270, originalTorque: 330, stage1HP: 310, stage1Torque: 400, stage2HP: 340, stage2Torque: 430 },
+        ],
+      },
+      {
+        name: "3008",
+        years: ["2016", "2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.5 BlueHDi", displacement: "1499cc", fuelType: "Dizel", originalHP: 130, originalTorque: 300, stage1HP: 165, stage1Torque: 370, stage2HP: 180, stage2Torque: 400 },
+          { name: "2.0 BlueHDi", displacement: "1997cc", fuelType: "Dizel", originalHP: 150, originalTorque: 370, stage1HP: 190, stage1Torque: 440, stage2HP: 210, stage2Torque: 470 },
+          { name: "2.0 BlueHDi", displacement: "1997cc", fuelType: "Dizel", originalHP: 180, originalTorque: 400, stage1HP: 215, stage1Torque: 470, stage2HP: 240, stage2Torque: 510 },
+          { name: "1.2 PureTech", displacement: "1199cc", fuelType: "Benzin", originalHP: 130, originalTorque: 230, stage1HP: 160, stage1Torque: 290 },
+          { name: "1.6 THP", displacement: "1598cc", fuelType: "Benzin", originalHP: 165, originalTorque: 240, stage1HP: 200, stage1Torque: 300, stage2HP: 220, stage2Torque: 330 },
+        ],
+      },
+      {
+        name: "301",
+        years: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        engines: [
+          { name: "1.6 HDi", displacement: "1560cc", fuelType: "Dizel", originalHP: 92, originalTorque: 230, stage1HP: 125, stage1Torque: 300 },
+          { name: "1.6 BlueHDi", displacement: "1560cc", fuelType: "Dizel", originalHP: 100, originalTorque: 254, stage1HP: 135, stage1Torque: 320 },
+          { name: "1.2 PureTech", displacement: "1199cc", fuelType: "Benzin", originalHP: 82, originalTorque: 118, stage1HP: 100, stage1Torque: 145 },
+          { name: "1.6 VTi", displacement: "1587cc", fuelType: "Benzin", originalHP: 115, originalTorque: 150, stage1HP: 125, stage1Torque: 165 },
+        ],
+      },
+    ],
+  },
+  // ── Citroen ──
+  {
+    name: "Citroen",
+    models: [
+      {
+        name: "C4",
+        years: ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"],
+        engines: [
+          { name: "1.6 HDi", displacement: "1560cc", fuelType: "Dizel", originalHP: 92, originalTorque: 230, stage1HP: 125, stage1Torque: 300 },
+          { name: "1.6 BlueHDi", displacement: "1560cc", fuelType: "Dizel", originalHP: 100, originalTorque: 254, stage1HP: 135, stage1Torque: 320 },
+          { name: "1.6 BlueHDi", displacement: "1560cc", fuelType: "Dizel", originalHP: 120, originalTorque: 300, stage1HP: 155, stage1Torque: 370 },
+          { name: "1.2 PureTech", displacement: "1199cc", fuelType: "Benzin", originalHP: 110, originalTorque: 205, stage1HP: 140, stage1Torque: 260 },
+          { name: "1.2 PureTech", displacement: "1199cc", fuelType: "Benzin", originalHP: 130, originalTorque: 230, stage1HP: 160, stage1Torque: 290 },
+          { name: "1.6 THP", displacement: "1598cc", fuelType: "Benzin", originalHP: 165, originalTorque: 240, stage1HP: 200, stage1Torque: 300 },
+        ],
+      },
+      {
+        name: "C3",
+        years: ["2016", "2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.5 BlueHDi", displacement: "1499cc", fuelType: "Dizel", originalHP: 100, originalTorque: 250, stage1HP: 135, stage1Torque: 310 },
+          { name: "1.2 PureTech", displacement: "1199cc", fuelType: "Benzin", originalHP: 83, originalTorque: 118, stage1HP: 100, stage1Torque: 145 },
+          { name: "1.2 PureTech", displacement: "1199cc", fuelType: "Benzin", originalHP: 110, originalTorque: 205, stage1HP: 140, stage1Torque: 260 },
+        ],
+      },
+      {
+        name: "C-Elysée",
+        years: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        engines: [
+          { name: "1.6 HDi", displacement: "1560cc", fuelType: "Dizel", originalHP: 92, originalTorque: 230, stage1HP: 125, stage1Torque: 300 },
+          { name: "1.6 BlueHDi", displacement: "1560cc", fuelType: "Dizel", originalHP: 100, originalTorque: 254, stage1HP: 135, stage1Torque: 320 },
+          { name: "1.2 PureTech", displacement: "1199cc", fuelType: "Benzin", originalHP: 82, originalTorque: 118, stage1HP: 100, stage1Torque: 145 },
+          { name: "1.6 VTi", displacement: "1587cc", fuelType: "Benzin", originalHP: 115, originalTorque: 150, stage1HP: 125, stage1Torque: 165 },
+        ],
+      },
+    ],
+  },
+  // ── Fiat ──
+  {
+    name: "Fiat",
+    models: [
+      {
+        name: "Egea / Tipo",
+        years: ["2015", "2016", "2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.3 MultiJet", displacement: "1248cc", fuelType: "Dizel", originalHP: 95, originalTorque: 200, stage1HP: 125, stage1Torque: 260, stage2HP: 140, stage2Torque: 290 },
+          { name: "1.6 MultiJet", displacement: "1598cc", fuelType: "Dizel", originalHP: 120, originalTorque: 320, stage1HP: 155, stage1Torque: 390, stage2HP: 170, stage2Torque: 420 },
+          { name: "1.4 T-Jet", displacement: "1368cc", fuelType: "Benzin", originalHP: 120, originalTorque: 215, stage1HP: 150, stage1Torque: 270 },
+          { name: "1.4 Fire", displacement: "1368cc", fuelType: "Benzin", originalHP: 95, originalTorque: 127, stage1HP: 105, stage1Torque: 140 },
+        ],
+      },
+      {
+        name: "500X",
+        years: ["2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        engines: [
+          { name: "1.3 MultiJet", displacement: "1248cc", fuelType: "Dizel", originalHP: 95, originalTorque: 200, stage1HP: 125, stage1Torque: 260 },
+          { name: "1.6 MultiJet", displacement: "1598cc", fuelType: "Dizel", originalHP: 120, originalTorque: 320, stage1HP: 155, stage1Torque: 390 },
+          { name: "2.0 MultiJet", displacement: "1956cc", fuelType: "Dizel", originalHP: 140, originalTorque: 350, stage1HP: 180, stage1Torque: 420, stage2HP: 200, stage2Torque: 460 },
+          { name: "1.4 MultiAir", displacement: "1368cc", fuelType: "Benzin", originalHP: 140, originalTorque: 230, stage1HP: 170, stage1Torque: 280 },
+        ],
+      },
+    ],
+  },
+  // ── Toyota ──
+  {
+    name: "Toyota",
+    models: [
+      {
+        name: "Corolla",
+        years: ["2018", "2019", "2020", "2021", "2022", "2023"],
+        engines: [
+          { name: "1.6 Valvematic", displacement: "1598cc", fuelType: "Benzin", originalHP: 132, originalTorque: 160, stage1HP: 142, stage1Torque: 175 },
+          { name: "1.2 Turbo", displacement: "1197cc", fuelType: "Benzin", originalHP: 116, originalTorque: 185, stage1HP: 140, stage1Torque: 230 },
+          { name: "2.0 D-4D", displacement: "1998cc", fuelType: "Dizel", originalHP: 124, originalTorque: 310, stage1HP: 155, stage1Torque: 370 },
+        ],
+      },
+      {
+        name: "C-HR",
+        years: ["2016", "2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.2 Turbo", displacement: "1197cc", fuelType: "Benzin", originalHP: 116, originalTorque: 185, stage1HP: 140, stage1Torque: 230 },
+        ],
+      },
+    ],
+  },
+  // ── Hyundai ──
+  {
+    name: "Hyundai",
+    models: [
+      {
+        name: "Tucson",
+        years: ["2015", "2016", "2017", "2018", "2019", "2020"],
+        engines: [
+          { name: "1.6 CRDi", displacement: "1598cc", fuelType: "Dizel", originalHP: 115, originalTorque: 260, stage1HP: 145, stage1Torque: 320 },
+          { name: "1.6 CRDi", displacement: "1598cc", fuelType: "Dizel", originalHP: 136, originalTorque: 320, stage1HP: 170, stage1Torque: 390, stage2HP: 185, stage2Torque: 420 },
+          { name: "2.0 CRDi", displacement: "1995cc", fuelType: "Dizel", originalHP: 185, originalTorque: 400, stage1HP: 220, stage1Torque: 470, stage2HP: 245, stage2Torque: 510 },
+          { name: "1.6 T-GDI", displacement: "1591cc", fuelType: "Benzin", originalHP: 177, originalTorque: 265, stage1HP: 210, stage1Torque: 320 },
+        ],
+      },
+      {
+        name: "i30",
+        years: ["2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.6 CRDi", displacement: "1598cc", fuelType: "Dizel", originalHP: 110, originalTorque: 280, stage1HP: 145, stage1Torque: 340 },
+          { name: "1.6 CRDi", displacement: "1598cc", fuelType: "Dizel", originalHP: 136, originalTorque: 320, stage1HP: 170, stage1Torque: 390, stage2HP: 185, stage2Torque: 420 },
+          { name: "1.0 T-GDI", displacement: "998cc", fuelType: "Benzin", originalHP: 120, originalTorque: 172, stage1HP: 145, stage1Torque: 220 },
+          { name: "1.4 T-GDI", displacement: "1353cc", fuelType: "Benzin", originalHP: 140, originalTorque: 242, stage1HP: 170, stage1Torque: 290 },
+          { name: "2.0 T-GDI N", displacement: "1998cc", fuelType: "Benzin", originalHP: 275, originalTorque: 353, stage1HP: 310, stage1Torque: 420, stage2HP: 340, stage2Torque: 460 },
+        ],
+      },
+    ],
+  },
+  // ── Kia ──
+  {
+    name: "Kia",
+    models: [
+      {
+        name: "Sportage",
+        years: ["2015", "2016", "2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.6 CRDi", displacement: "1598cc", fuelType: "Dizel", originalHP: 115, originalTorque: 260, stage1HP: 145, stage1Torque: 320 },
+          { name: "1.6 CRDi", displacement: "1598cc", fuelType: "Dizel", originalHP: 136, originalTorque: 320, stage1HP: 170, stage1Torque: 390, stage2HP: 185, stage2Torque: 420 },
+          { name: "2.0 CRDi", displacement: "1995cc", fuelType: "Dizel", originalHP: 185, originalTorque: 400, stage1HP: 220, stage1Torque: 470, stage2HP: 245, stage2Torque: 510 },
+          { name: "1.6 T-GDI", displacement: "1591cc", fuelType: "Benzin", originalHP: 177, originalTorque: 265, stage1HP: 210, stage1Torque: 320 },
+        ],
+      },
+      {
+        name: "Ceed",
+        years: ["2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.6 CRDi", displacement: "1598cc", fuelType: "Dizel", originalHP: 115, originalTorque: 280, stage1HP: 145, stage1Torque: 340 },
+          { name: "1.6 CRDi", displacement: "1598cc", fuelType: "Dizel", originalHP: 136, originalTorque: 320, stage1HP: 170, stage1Torque: 390 },
+          { name: "1.0 T-GDI", displacement: "998cc", fuelType: "Benzin", originalHP: 120, originalTorque: 172, stage1HP: 145, stage1Torque: 220 },
+          { name: "1.4 T-GDI", displacement: "1353cc", fuelType: "Benzin", originalHP: 140, originalTorque: 242, stage1HP: 170, stage1Torque: 290 },
+        ],
+      },
+    ],
+  },
+  // ── Skoda ──
+  {
+    name: "Skoda",
+    models: [
+      {
+        name: "Octavia 3",
+        years: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        engines: [
+          { name: "1.6 TDI", displacement: "1598cc", fuelType: "Dizel", originalHP: 105, originalTorque: 250, stage1HP: 140, stage1Torque: 320 },
+          { name: "1.6 TDI", displacement: "1598cc", fuelType: "Dizel", originalHP: 110, originalTorque: 250, stage1HP: 145, stage1Torque: 330 },
+          { name: "2.0 TDI", displacement: "1968cc", fuelType: "Dizel", originalHP: 150, originalTorque: 340, stage1HP: 190, stage1Torque: 420, stage2HP: 210, stage2Torque: 460 },
+          { name: "1.4 TSI", displacement: "1395cc", fuelType: "Benzin", originalHP: 150, originalTorque: 250, stage1HP: 180, stage1Torque: 310, stage2HP: 200, stage2Torque: 340 },
+          { name: "2.0 TSI RS", displacement: "1984cc", fuelType: "Benzin", originalHP: 220, originalTorque: 350, stage1HP: 280, stage1Torque: 430, stage2HP: 310, stage2Torque: 470 },
+          { name: "2.0 TSI RS", displacement: "1984cc", fuelType: "Benzin", originalHP: 245, originalTorque: 370, stage1HP: 300, stage1Torque: 440, stage2HP: 330, stage2Torque: 480 },
+        ],
+      },
+      {
+        name: "Superb 3",
+        years: ["2015", "2016", "2017", "2018", "2019"],
+        engines: [
+          { name: "1.6 TDI", displacement: "1598cc", fuelType: "Dizel", originalHP: 120, originalTorque: 250, stage1HP: 155, stage1Torque: 330 },
+          { name: "2.0 TDI", displacement: "1968cc", fuelType: "Dizel", originalHP: 150, originalTorque: 340, stage1HP: 190, stage1Torque: 420, stage2HP: 210, stage2Torque: 460 },
+          { name: "2.0 TDI", displacement: "1968cc", fuelType: "Dizel", originalHP: 190, originalTorque: 400, stage1HP: 230, stage1Torque: 470, stage2HP: 255, stage2Torque: 510 },
+          { name: "1.4 TSI", displacement: "1395cc", fuelType: "Benzin", originalHP: 150, originalTorque: 250, stage1HP: 185, stage1Torque: 310 },
+          { name: "2.0 TSI", displacement: "1984cc", fuelType: "Benzin", originalHP: 280, originalTorque: 350, stage1HP: 330, stage1Torque: 430, stage2HP: 360, stage2Torque: 470 },
+        ],
+      },
+    ],
+  },
+  // ── Seat ──
+  {
+    name: "Seat",
+    models: [
+      {
+        name: "Leon 3",
+        years: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        engines: [
+          { name: "1.6 TDI", displacement: "1598cc", fuelType: "Dizel", originalHP: 105, originalTorque: 250, stage1HP: 140, stage1Torque: 320 },
+          { name: "2.0 TDI", displacement: "1968cc", fuelType: "Dizel", originalHP: 150, originalTorque: 340, stage1HP: 190, stage1Torque: 420, stage2HP: 210, stage2Torque: 460 },
+          { name: "1.4 TSI", displacement: "1395cc", fuelType: "Benzin", originalHP: 150, originalTorque: 250, stage1HP: 180, stage1Torque: 310 },
+          { name: "2.0 TSI Cupra", displacement: "1984cc", fuelType: "Benzin", originalHP: 290, originalTorque: 380, stage1HP: 340, stage1Torque: 460, stage2HP: 370, stage2Torque: 500 },
+        ],
+      },
+    ],
+  },
+  // ── Dacia ──
+  {
+    name: "Dacia",
+    models: [
+      {
+        name: "Duster",
+        years: ["2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.5 dCi", displacement: "1461cc", fuelType: "Dizel", originalHP: 90, originalTorque: 220, stage1HP: 120, stage1Torque: 280 },
+          { name: "1.5 dCi", displacement: "1461cc", fuelType: "Dizel", originalHP: 110, originalTorque: 260, stage1HP: 140, stage1Torque: 330 },
+          { name: "1.5 Blue dCi", displacement: "1461cc", fuelType: "Dizel", originalHP: 115, originalTorque: 260, stage1HP: 145, stage1Torque: 330 },
+          { name: "1.3 TCe", displacement: "1332cc", fuelType: "Benzin", originalHP: 130, originalTorque: 240, stage1HP: 160, stage1Torque: 300 },
+          { name: "1.3 TCe", displacement: "1332cc", fuelType: "Benzin", originalHP: 150, originalTorque: 250, stage1HP: 180, stage1Torque: 310 },
+        ],
+      },
+      {
+        name: "Sandero",
+        years: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        engines: [
+          { name: "1.5 dCi", displacement: "1461cc", fuelType: "Dizel", originalHP: 75, originalTorque: 200, stage1HP: 105, stage1Torque: 260 },
+          { name: "1.5 dCi", displacement: "1461cc", fuelType: "Dizel", originalHP: 90, originalTorque: 220, stage1HP: 120, stage1Torque: 280 },
+          { name: "0.9 TCe", displacement: "898cc", fuelType: "Benzin", originalHP: 90, originalTorque: 135, stage1HP: 110, stage1Torque: 175 },
+        ],
+      },
+    ],
+  },
+  // ── Volvo ──
+  {
+    name: "Volvo",
+    models: [
+      {
+        name: "S60 / V60",
+        years: ["2018", "2019", "2020", "2021", "2022"],
+        engines: [
+          { name: "D3", displacement: "1969cc", fuelType: "Dizel", originalHP: 150, originalTorque: 320, stage1HP: 190, stage1Torque: 400 },
+          { name: "D4", displacement: "1969cc", fuelType: "Dizel", originalHP: 190, originalTorque: 400, stage1HP: 230, stage1Torque: 470, stage2HP: 250, stage2Torque: 510 },
+          { name: "T5", displacement: "1969cc", fuelType: "Benzin", originalHP: 250, originalTorque: 350, stage1HP: 290, stage1Torque: 420, stage2HP: 310, stage2Torque: 450 },
+          { name: "T6", displacement: "1969cc", fuelType: "Benzin", originalHP: 310, originalTorque: 400, stage1HP: 350, stage1Torque: 470, stage2HP: 380, stage2Torque: 510 },
+        ],
+      },
+      {
+        name: "XC60",
+        years: ["2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "D4", displacement: "1969cc", fuelType: "Dizel", originalHP: 190, originalTorque: 400, stage1HP: 230, stage1Torque: 470, stage2HP: 250, stage2Torque: 510 },
+          { name: "D5", displacement: "1969cc", fuelType: "Dizel", originalHP: 235, originalTorque: 480, stage1HP: 270, stage1Torque: 550, stage2HP: 290, stage2Torque: 580 },
+          { name: "T5", displacement: "1969cc", fuelType: "Benzin", originalHP: 250, originalTorque: 350, stage1HP: 290, stage1Torque: 420 },
+          { name: "T6", displacement: "1969cc", fuelType: "Benzin", originalHP: 310, originalTorque: 400, stage1HP: 350, stage1Torque: 470, stage2HP: 380, stage2Torque: 510 },
+        ],
+      },
+    ],
+  },
+  // ── Honda ──
+  {
+    name: "Honda",
+    models: [
+      {
+        name: "Civic (10th Gen)",
+        years: ["2016", "2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.6 i-DTEC", displacement: "1597cc", fuelType: "Dizel", originalHP: 120, originalTorque: 300, stage1HP: 155, stage1Torque: 370 },
+          { name: "1.0 VTEC Turbo", displacement: "988cc", fuelType: "Benzin", originalHP: 129, originalTorque: 200, stage1HP: 155, stage1Torque: 250 },
+          { name: "1.5 VTEC Turbo", displacement: "1498cc", fuelType: "Benzin", originalHP: 182, originalTorque: 240, stage1HP: 215, stage1Torque: 300, stage2HP: 235, stage2Torque: 330 },
+          { name: "2.0 VTEC Turbo Type R", displacement: "1996cc", fuelType: "Benzin", originalHP: 320, originalTorque: 400, stage1HP: 360, stage1Torque: 460, stage2HP: 390, stage2Torque: 500 },
+        ],
+      },
+    ],
+  },
+  // ── Nissan ──
+  {
+    name: "Nissan",
+    models: [
+      {
+        name: "Qashqai",
+        years: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"],
+        engines: [
+          { name: "1.5 dCi", displacement: "1461cc", fuelType: "Dizel", originalHP: 110, originalTorque: 260, stage1HP: 140, stage1Torque: 330 },
+          { name: "1.6 dCi", displacement: "1598cc", fuelType: "Dizel", originalHP: 130, originalTorque: 320, stage1HP: 165, stage1Torque: 390, stage2HP: 185, stage2Torque: 420 },
+          { name: "1.2 DIG-T", displacement: "1197cc", fuelType: "Benzin", originalHP: 115, originalTorque: 190, stage1HP: 140, stage1Torque: 240 },
+          { name: "1.6 DIG-T", displacement: "1618cc", fuelType: "Benzin", originalHP: 163, originalTorque: 240, stage1HP: 195, stage1Torque: 300, stage2HP: 215, stage2Torque: 330 },
+        ],
+      },
+      {
+        name: "X-Trail",
+        years: ["2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        engines: [
+          { name: "1.6 dCi", displacement: "1598cc", fuelType: "Dizel", originalHP: 130, originalTorque: 320, stage1HP: 165, stage1Torque: 390, stage2HP: 185, stage2Torque: 420 },
+          { name: "2.0 dCi", displacement: "1995cc", fuelType: "Dizel", originalHP: 177, originalTorque: 380, stage1HP: 210, stage1Torque: 450, stage2HP: 230, stage2Torque: 490 },
+          { name: "1.6 DIG-T", displacement: "1618cc", fuelType: "Benzin", originalHP: 163, originalTorque: 240, stage1HP: 195, stage1Torque: 300 },
+        ],
+      },
+    ],
+  },
 ];
 
 // Stage açıklamaları

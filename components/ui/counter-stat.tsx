@@ -38,10 +38,6 @@ export function CounterStat({ value, suffix = "", delay = 0 }: CounterStatProps)
     return () => clearTimeout(timer);
   }, [isInView, value, delay]);
 
-  const formatted = count >= 1000
-    ? `${(count / 1000).toFixed(count >= value ? 0 : 0)}${count >= 1000 ? "." + String(count % 1000).padStart(3, "0").slice(0, -2) : ""}`.replace(/\.0+$/, "").replace(/(\.\d)0$/, "$1")
-    : String(count);
-
   const display = count >= 1000
     ? new Intl.NumberFormat("tr-TR").format(count)
     : String(count);

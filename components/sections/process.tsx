@@ -31,7 +31,7 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <SectionWrapper id="process" variant="muted" className="noise-overlay">
+    <SectionWrapper id="process" variant="muted">
       {/* Decorative */}
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand/5 rounded-full blur-[100px]" />
       <div className="absolute top-1/2 right-0 w-52 h-52 bg-brand/3 rounded-full blur-[80px]" />

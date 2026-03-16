@@ -114,14 +114,14 @@ export function ChipTuningCalculator() {
   };
 
   return (
-    <SectionWrapper id="chip-tuning-calculator" className="noise-overlay">
+    <SectionWrapper id="chip-tuning-calculator">
       {/* Decorative */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand/5 rounded-full blur-[150px]" />
       <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-brand/3 rounded-full blur-[100px]" />
 
       <SectionHeader
-        title="Chip Tuning Hesaplama"
-        subtitle="Aracınızı seçin, yazılım sonrası güç ve tork değerlerini anında görün."
+        title="Dr.Şair — Chip Tuning Hesaplama"
+        subtitle="Aracınızı seçin, Dr.Şair yazılım sonrası güç ve tork değerlerini anında görün. Tüm markalar desteklenir."
       />
 
       <div className="max-w-5xl mx-auto">
