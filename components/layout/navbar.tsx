@@ -309,7 +309,7 @@ export function Navbar() {
           <Link
             href="/"
             className={cn(
-              "flex items-center gap-3 group transition-all duration-500",
+              "flex flex-1 items-center gap-3 group transition-all duration-500 min-w-0 pr-2",
               scrolled ? "py-2.5" : "py-3.5 sm:py-4"
             )}
           >
@@ -327,22 +327,14 @@ export function Navbar() {
                 priority
               />
             </div>
-            <div className="flex flex-col justify-center min-w-0">
+            <div className="flex flex-1 items-center min-w-0">
               <span
                 className={cn(
-                  "font-black tracking-tight text-brand uppercase leading-none whitespace-nowrap transition-all duration-500",
-                  scrolled ? "text-sm" : "text-base sm:text-lg"
+                  "font-black tracking-tight text-brand uppercase leading-none transition-all duration-500 w-full truncate",
+                  scrolled ? "text-lg" : "text-2xl sm:text-3xl"
                 )}
               >
                 GM OPEL GARAGE
-              </span>
-              <span
-                className={cn(
-                  "font-bold text-brand/40 tracking-[0.2em] uppercase transition-all duration-500",
-                  scrolled ? "text-[6px] mt-0" : "text-[7px] sm:text-[8px] mt-0.5"
-                )}
-              >
-                PSA SERVİS
               </span>
             </div>
           </Link>
