@@ -3,6 +3,16 @@ import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { SectionHeader } from "@/components/ui/section-header";
 import { createPageMetadata } from "@/lib/seo/metadata";
 
+const blogSlugs = [
+  "motor-beyni-arizasi-nasil-anlasilir",
+  "ecu-tamiri-mi-degisim-mi",
+  "elektronik-ariza-isiklari",
+];
+
+export async function generateStaticParams() {
+  return blogSlugs.map((slug) => ({ slug }));
+}
+
 export const metadata: Metadata = createPageMetadata({
   title: "Blog Yazısı",
   description: "Blog yazısı detay sayfası.",

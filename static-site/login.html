@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Service-Ding</title>
+  <meta name="apple-itunes-app" content="app-id=YOUR_IOS_APP_ID" />
+  <style>
+    body { 
+      margin: 0; 
+      padding: 0; 
+      background: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Deep link - Kullanıcı mail linkine tıkladığında direkt uygulamayı aç
+    const deepLink = "serviceding://auth/login";
+    
+    // Hemen uygulamayı açmayı dene
+    window.location.replace(deepLink);
+    
+    // Eğer uygulama yüklü değilse fallback olarak store'a yönlendir
+    const ua = navigator.userAgent || "";
+    const isAndroid = /android/i.test(ua);
+    const isIOS = /iPad|iPhone|iPod/i.test(ua);
+    
+    const playStoreLink = "https://play.google.com/store/apps/details?id=com.servicedingmobile";
+    const appStoreLink = "https://apps.apple.com/app/id6738994330";
+    const storeLink = isIOS ? appStoreLink : playStoreLink;
+    
+    // 2.5 saniye sonra hala sayfadaysa (uygulama açılmadıysa) store'a yönlendir
+    setTimeout(function() {
+      window.location.replace(storeLink);
+    }, 2500);
+  </script>
+</body>
+</html>

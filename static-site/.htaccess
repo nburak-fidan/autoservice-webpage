@@ -1,0 +1,82 @@
+# ============================================================
+#  GM OPEL GARAGE — .htaccess
+#  İsimtescil Mini Host (Apache)
+# ============================================================
+
+# UTF-8 karakter seti
+AddDefaultCharset UTF-8
+
+# ── GZIP Sıkıştırma ──
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ── Tarayıcı Önbellekleme ──
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # HTML — kısa cache (güncellemeleri hızlı alsın)
+  ExpiresByType text/html "access plus 1 hour"
+  # CSS/JS — orta cache
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  # Görseller — uzun cache
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+# ── Cache-Control Header ──
+<IfModule mod_headers.c>
+  # Görseller
+  <FilesMatch "\.(webp|svg|png|jpg|jpeg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # CSS/JS
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  # HTML
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+  # Güvenlik başlıkları
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ── MIME Types ──
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+  AddType application/javascript .js
+  AddType text/css .css
+</IfModule>
+
+# ── Özel 404 Sayfası ──
+ErrorDocument 404 /404.html
+
+# ── www yönlendirmesi (www olmadan → www'ye) ──
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # HTTP → HTTPS (SSL varsa)
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP_HOST} ^(www\.)?gmopelgarage\.com$ [NC]
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+  
+  # Non-www → www
+  RewriteCond %{HTTP_HOST} ^gmopelgarage\.com$ [NC]
+  RewriteRule ^(.*)$ https://www.gmopelgarage.com/$1 [R=301,L]
+</IfModule>
+
+# ── Dizin listelemeyi kapat ──
+Options -Indexes
